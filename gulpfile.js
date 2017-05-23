@@ -25,7 +25,7 @@ gulp.task('build', function() {
 });
 
 gulp.task('less', function() {
-  return gulp.src('less/*.less')
+  return gulp.src('less/style.less')
     .pipe(less())
     .pipe(gulp.dest('./dist/style'))
     .pipe(browsersync.stream());
@@ -40,7 +40,10 @@ gulp.task('compress', function() {
     .pipe(gulp.dest('dist'));
 });
 
-
+gulp.task('copy', function() {
+  gulp.src('./images/**/*')
+    .pipe(gulp.dest('./dist/images'));
+});
 
 gulp.task('browsersync', function() {
   browsersync({
@@ -52,10 +55,11 @@ gulp.task('browsersync', function() {
   gulp.watch("./components/*.jsx", ['build']);
   gulp.watch("./dispatcher/*.js", ['build']);
   gulp.watch("./stores/*.js", ['build']);
-  gulp.watch("./less/*.less", ['less']);
+  gulp.watch("./less/**/*.less", ['less']);
   gulp.watch("*.html").on('change', browsersync.reload);
+  gulp.watch('./images/**/*' ['copy']);
 });
 
 gulp.task('default', function(cb) {
-  runSequence('build', 'less', 'browsersync');
+  runSequence('build', 'less', 'copy', 'browsersync');
 });
