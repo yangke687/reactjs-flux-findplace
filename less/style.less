@@ -1,6 +1,7 @@
 @import "mixin.less";
 @import "reset.less";
 @import "header.less";
+@import "homepage.less";
 
 .fs(@px){
 	font-size: unit(@px / 37.5, rem);
@@ -66,4 +67,17 @@
 
 .right(@px){
 	right: unit(@px/37.5,rem);
+}
+
+/* elements */
+.site-content{
+	position: absolute;
+    .top(66);
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding-top: 0;
+    overflow-y: scroll;
+    background: #f1f2f2;
+    .transition(all,0.5s,ease-in-out);
 }
