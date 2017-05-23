@@ -1,0 +1,32 @@
+.header{
+	.fs(24);
+	.h(67);
+	background: #ec8443;
+	#header__icon{
+		position: relative;
+	    display: block;
+	    float: right;
+	    .w(50);
+	    .h(66);
+	    cursor: pointer;
+	    &:after{
+	    	content: '';
+		    position: absolute;
+		    display: block;
+		    .w(18);
+		    height: 0;
+		    .top(16);
+		    .left(15);
+    		box-shadow: 0 10px 0 1px #fff, 0 16px 0 1px #fff, 0 22px 0 1px #fff;
+	    }
+	}
+	#header__logo{
+		float: left;
+		.pl(25);
+		#logo{
+			.mt(13);
+			.mb(13);
+			.w(174);
+		}
+	}
+}
