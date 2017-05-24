@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import SliderShow from './homepage/slidershow';
 import SearchForm from './homepage/searchForm';
+import GalleryShow from './homepage/gallery';
 
 class AppRoot extends React.Component {
 	render() {
@@ -12,6 +13,7 @@ class AppRoot extends React.Component {
 				<div className="site-content">
 					<SliderShow />
 					<SearchForm />
+					<GalleryShow />
 				</div>
 			</div>
         </div>);

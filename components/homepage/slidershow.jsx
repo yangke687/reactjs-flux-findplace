@@ -3,8 +3,7 @@ import Slider from 'react-slick';
 
 class sliderShow extends React.Component{
 	render(){
-		var settings = {
-	      dots: true,
+		let settings = {
 	      infinite: true,
 	      speed: 2000,
 	      autoplaySpeed: 7000,
@@ -16,9 +15,10 @@ class sliderShow extends React.Component{
 	      fade: true,
 	      touchMove: false,
 	      swipe: false,
+	      className: 'slidesshow',
 	    };
 		return (
-			<Slider classNmae="slidesshow" {...settings}>
+			<Slider {...settings}>
 				<div>
 					<div className="slide">
 						<section className="slideImg second"></section>

@@ -1,4 +1,4 @@
-.slick-slide{
+.slidesshow .slick-slide{
 	margin: 0;
     position: relative;
     width: 100%;
@@ -66,13 +66,13 @@
 		    width: 90%;
 		    color: #333;
 		    background-color: #fff;
-		   	.h(48);
+		   	.h(50);
 		    border: 1px solid #d8d9da;
 		    .border-radius(5px);
 		    display: inline-block;
 		    vertical-align: top;
 		    text-align: left;
-		    .mt(20);
+		    .mt(22);
 		    .mr(5);
 		    .ml(5);
 		    .transition(all,0.6s,ease-in-out);
@@ -140,17 +140,18 @@
 	    }
 	    .keySearch{
 			width: 86%;
-			.mt(20);
+			.mt(22);
 			padding: 0 0 0 15px;
 			.fs(16);
-			.h(48);
+			.h(50);
 			padding: 0 5px 0 10px;
 			.border-radius(5px);
 			.transition(all,0.8s,ease-in-out);
 			border: none;	    
 		}
 		.orangeBtn{
-			.mt(20);
+			.mt(22);
+			.fs(18);
     		width: 90%;
 			background: #ff6700;
 		    color: #fff;
@@ -161,4 +162,75 @@
 		    .transition(all,0.1s,ease-in-out);
 		}
    	}
+}
+
+.gallerywrapper{
+	width: 100%;
+	.mt(315);
+	.mb(30);
+	max-width: 1300px;
+	text-align: center;
+	display: flex;
+	.slick-list{
+		display: inline-block;
+		width: 203px;
+	}
+	.galleryThumb{
+		float: left;
+	    background: #ffffff;
+	    width: 183px;
+	    height: 160px;
+	   	.border-radius(5px);
+	    text-align: center;
+	    display: inline-block;
+	    margin: 20px 10px;
+	}
+	.galleryshow{
+		margin: 0 auto;
+	}
+	.slick-prev{
+		display: inline-block !important;
+		float: left;
+		width: 27px;
+	    height: 44px;
+	    background-image: url(../images/sprites.png) !important;
+	    background-repeat: no-repeat;
+	    background-position: 0 -139px;
+	    background-size: 155px;
+	    display: inline-block;
+	    vertical-align: top;
+	    margin: 75px 0 0 0;
+	    cursor: pointer;
+	    position: static !important;
+	    .translate(0,0);
+	    &:before{
+			display: none;
+	    }
+	    &:hover,&:focus{
+	    	background: url('../images/sprites.png') -31px -139px no-repeat;
+	    	background-size: 155px;
+	    }
+	}
+	.slick-next{
+		display: inline-block !important;
+		width: 27px;
+	    height: 44px;
+	    background-image: url(../images/sprites.png) !important;
+	    background-repeat: no-repeat;
+	    background-position: 0 -186px;
+	    background-size: 155px;
+	    display: inline-block;
+	    vertical-align: top;
+	    margin: 75px 0 0 0;
+	    cursor: pointer;
+	    position: static !important;
+	    .translate(0,0);
+	    &:before{
+	    	display: none;
+	    }
+	     &:hover,&:focus{
+	    	background: url('../images/sprites.png') -31px -186px no-repeat;
+	    	background-size: 155px;
+	    }
+	}
 }
