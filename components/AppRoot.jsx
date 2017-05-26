@@ -7,6 +7,7 @@ import SliderShow from './homepage/slidershow';
 import SearchForm from './homepage/searchForm';
 import GalleryShow from './homepage/gallery';
 import SelectedPlaces from './homepage/selectedPlaces';
+import Promo from './homepage/promo';
 
 class AppRoot extends React.Component {
 	render() {
@@ -21,6 +22,7 @@ class AppRoot extends React.Component {
 					<AltContainer store={HomeStore}>
 						<SelectedPlaces />
 					</AltContainer>
+					<Promo />
 				</div>
 			</div>
         </div>);
