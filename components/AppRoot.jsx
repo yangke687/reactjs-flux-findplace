@@ -1,4 +1,5 @@
 import React from 'react';
+import AltContainer from 'alt-container';
 import HomeStore from '../stores/HomeStore';
 
 import Header from './Header';
@@ -17,7 +18,9 @@ class AppRoot extends React.Component {
 					<SliderShow />
 					<SearchForm />
 					<GalleryShow />
-					<SelectedPlaces />
+					<AltContainer store={HomeStore}>
+						<SelectedPlaces />
+					</AltContainer>
 				</div>
 			</div>
         </div>);
