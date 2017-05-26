@@ -1,4 +1,6 @@
 import React from 'react';
+import HomeStore from '../stores/HomeStore';
+
 import Header from './Header';
 import SliderShow from './homepage/slidershow';
 import SearchForm from './homepage/searchForm';
@@ -19,6 +21,10 @@ class AppRoot extends React.Component {
 				</div>
 			</div>
         </div>);
+	}
+
+	componentDidMount(){
+		HomeStore.fetchSelectedPlaces();
 	}
 };
 
