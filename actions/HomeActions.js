@@ -14,6 +14,10 @@ class HomeActions {
 		return errorMessage;
 	}
 
+	fetchPlaceCategories() {
+		return null;
+	}
+
 	updatePlaceCategories(categories) {
 		return categories;
 	}

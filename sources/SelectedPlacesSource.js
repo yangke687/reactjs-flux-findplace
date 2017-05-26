@@ -1,4 +1,4 @@
-var HomeActions = require('../actions/HomeActions');
+import HomeActions from '../actions/HomeActions';
 
 var mockData = [{
 	id: 0,

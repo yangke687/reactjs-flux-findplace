@@ -8,6 +8,7 @@ import SearchForm from './homepage/searchForm';
 import GalleryShow from './homepage/gallery';
 import SelectedPlaces from './homepage/selectedPlaces';
 import Promo from './homepage/promo';
+import PlaceCategories from './homepage/placeCategories';
 
 class AppRoot extends React.Component {
 	render() {
@@ -23,6 +24,9 @@ class AppRoot extends React.Component {
 						<SelectedPlaces />
 					</AltContainer>
 					<Promo />
+					<AltContainer store={HomeStore}>
+						<PlaceCategories />
+					</AltContainer>
 				</div>
 			</div>
         </div>);
@@ -30,6 +34,7 @@ class AppRoot extends React.Component {
 
 	componentDidMount(){
 		HomeStore.fetchSelectedPlaces();
+		HomeStore.fetchPlaceCategories();
 	}
 };
 
