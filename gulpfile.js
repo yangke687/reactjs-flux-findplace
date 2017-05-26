@@ -53,8 +53,9 @@ gulp.task('browsersync', function() {
   });
   gulp.watch("./*.js", ['build']);
   gulp.watch("./components/**/*.jsx", ['build']);
-  gulp.watch("./dispatcher/*.js", ['build']);
+  gulp.watch("./actions/*.js", ['build']);
   gulp.watch("./stores/*.js", ['build']);
+  gulp.watch("./sources/*.js", ['build']);
   gulp.watch("./less/**/*.less", ['less']);
   gulp.watch("*.html").on('change', browsersync.reload);
   gulp.watch('./images/**/*', ['copy']);
