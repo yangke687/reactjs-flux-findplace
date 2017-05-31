@@ -33,6 +33,18 @@ class HomeActions {
 	placePostsFailed(errorMessage) {
 		return errorMessage;
 	}
+
+	updatePosts(posts) {
+		return posts;
+	}
+
+	postsFailed(errorMessage) {
+		return errorMessage;
+	}
+
+	fetchPosts() {
+		return null;
+	}
 }
 
 export default alt.createActions(HomeActions);

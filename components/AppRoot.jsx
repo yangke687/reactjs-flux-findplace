@@ -10,6 +10,7 @@ import SelectedPlaces from './homepage/selectedPlaces';
 import Promo from './homepage/promo';
 import PlaceCategories from './homepage/placeCategories';
 import QuickSearchForm from './homepage/quickSearchForm';
+import Blog from './homepage/blog';
 
 class AppRoot extends React.Component {
 	render() {
@@ -29,6 +30,9 @@ class AppRoot extends React.Component {
 						<PlaceCategories />
 					</AltContainer>
 					<QuickSearchForm />
+					<AltContainer store={HomeStore}>
+						<Blog />
+					</AltContainer>
 				</div>
 			</div>
         </div>);
@@ -37,6 +41,7 @@ class AppRoot extends React.Component {
 	componentDidMount(){
 		HomeStore.fetchSelectedPlaces();
 		HomeStore.fetchPlaceCategories();
+		HomeStore.fetchPosts();
 	}
 };
 
