@@ -372,7 +372,8 @@
 	background: #ec8443;
     width: 100%;
     text-align: center;
-    padding: 1px 0 20px;
+    .pt(1);
+    .pb(20);
     .transition(all,0.5s,ease-in-out);
     .iconBlog{
     	background-image: url(../images/sprites.png);
@@ -431,4 +432,27 @@
 	    .transition(all,0.1s,ease-in-out);
 	    .fs(16);
     }
+}
+
+.press{
+	.pb(1);
+	img{
+		.ml(5);
+		.mr(5);
+	}
+	.sectionWrapper{
+		.mt(20);
+		.mb(20);
+		div{
+			display: inline-block;
+		}
+	}
+	p{
+		display: inline-block;
+   		vertical-align: top;
+    	.mt(22);
+    	.mr(10);
+    	.ml(10);
+    	.fs(18);
+	}
 }

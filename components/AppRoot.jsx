@@ -11,6 +11,7 @@ import Promo from './homepage/promo';
 import PlaceCategories from './homepage/placeCategories';
 import QuickSearchForm from './homepage/quickSearchForm';
 import Blog from './homepage/blog';
+import Press from './homepage/press';
 
 class AppRoot extends React.Component {
 	render() {
@@ -33,6 +34,7 @@ class AppRoot extends React.Component {
 					<AltContainer store={HomeStore}>
 						<Blog />
 					</AltContainer>
+					<Press />
 				</div>
 			</div>
         </div>);
