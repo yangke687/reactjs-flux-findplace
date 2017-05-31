@@ -24,6 +24,9 @@ class Blog extends React.Component{
 					{this.props.posts.map((post,i)=>{
 						return <BlogUnit key={i} {...post} />
 					})}
+					<a href="#">
+						<button className="whiteOutlineBtn">更多精彩文章</button>
+					</a>
 				</div>
 			</section>
 		);
