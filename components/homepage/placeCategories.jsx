@@ -2,6 +2,13 @@ import React from 'react';
 
 class PlaceItem extends React.Component{
 	render(){
+		var idx = this.props.idx;
+		var length = this.props.length;
+		var hr = null;
+		// last element
+		if(idx+1===length){
+			hr = <hr className="rule" />;
+		}
 		return (
 			<div>
 				<a href="#">
@@ -10,6 +17,7 @@ class PlaceItem extends React.Component{
 						<div>{this.props.price}</div>
 					</div>
 				</a>
+				{hr}
 			</div>
 		);
 	}
@@ -22,7 +30,7 @@ class PlaceCategory extends React.Component{
 				<h2>{this.props.name}</h2>
 				<p>{this.props.desc}</p>
 				{this.props.places.map((place,i)=>{
-					return <PlaceItem {...place} key={i} />
+					return <PlaceItem {...place} key={i} idx={i} length={this.props.places.length} />
 				})}
 			</section>
 		);

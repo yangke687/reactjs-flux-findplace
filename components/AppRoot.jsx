@@ -9,6 +9,7 @@ import GalleryShow from './homepage/gallery';
 import SelectedPlaces from './homepage/selectedPlaces';
 import Promo from './homepage/promo';
 import PlaceCategories from './homepage/placeCategories';
+import QuickSearchForm from './homepage/quickSearchForm';
 
 class AppRoot extends React.Component {
 	render() {
@@ -27,6 +28,7 @@ class AppRoot extends React.Component {
 					<AltContainer store={HomeStore}>
 						<PlaceCategories />
 					</AltContainer>
+					<QuickSearchForm />
 				</div>
 			</div>
         </div>);
