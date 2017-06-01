@@ -12,6 +12,7 @@ import PlaceCategories from './homepage/placeCategories';
 import QuickSearchForm from './homepage/quickSearchForm';
 import Blog from './homepage/blog';
 import Press from './homepage/press';
+import Footer from './homepage/footer';
 
 class AppRoot extends React.Component {
 	render() {
@@ -35,6 +36,7 @@ class AppRoot extends React.Component {
 						<Blog />
 					</AltContainer>
 					<Press />
+					<Footer />
 				</div>
 			</div>
         </div>);
