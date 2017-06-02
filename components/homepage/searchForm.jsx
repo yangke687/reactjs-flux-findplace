@@ -1,5 +1,6 @@
 import React from 'react';
 import UsesSelect from './widgets/usesSelect';
+import { hashHistory } from 'react-router';
 
 class searchForm extends React.Component{
 	constructor(props){
@@ -8,7 +9,12 @@ class searchForm extends React.Component{
 	}
 	handleSubmit(evt){
 		evt.preventDefault();
-		console.log(this.state);
+		const uses = this.state.uses;
+		const county = this.state.county;
+		const max_people = this.state.max_people;
+		const keywords = this.state.keywords;
+		const path = `/search/${uses}/${county}/${max_people}/${keywords}`;
+		hashHistory.push(path);
 	}
 	handleChange(key,evt){
 		let val = evt.target.value;

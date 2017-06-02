@@ -11,7 +11,7 @@ import AppSearch from './components/AppSearch';
 ReactDOM.render(
 	(<Router history={hashHistory}>
 		<Route path="/" component={AppRoot} />
-		<Route path="/search" component={AppSearch} />
+		<Route path="/search(/:uses)(/:county)(/:max_people)(/:keywords)" component={AppSearch} />
 	</Router>),
 	document.getElementById('app-root')
 );
