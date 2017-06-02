@@ -13,7 +13,7 @@ class SearchForm extends React.Component{
 										<li>
 											<span>目的</span>
 											<div className="searchSelect">
-												<select class="changeFilter" name="uses">
+												<select className="changeFilter" name="uses">
                        								<option value="">请选择</option>
                                             	</select>
 											</div>
@@ -21,7 +21,7 @@ class SearchForm extends React.Component{
 										<li>
 											<span>活动人数</span>
 											<div className="searchSelect">
-												<select class="changeFilter" name="uses">
+												<select className="changeFilter" name="uses">
                        								<option value="">请选择</option>
                                             	</select>
 											</div>
@@ -29,7 +29,7 @@ class SearchForm extends React.Component{
 										<li>
 											<span>地点</span>
 											<div className="searchSelect">
-												<select class="changeFilter" name="uses">
+												<select className="changeFilter" name="uses">
                        								<option value="">请选择</option>
                                             	</select>
 											</div>
@@ -37,7 +37,7 @@ class SearchForm extends React.Component{
 										<li>
 											<span>每小时预算上限</span>
 											<div className="searchSelect">
-												<select class="changeFilter" name="uses">
+												<select className="changeFilter" name="uses">
                        								<option value="">请选择</option>
                                             	</select>
 											</div>
@@ -45,7 +45,7 @@ class SearchForm extends React.Component{
 										<li>
 											<span>每小时最低预算</span>
 											<div className="searchSelect">
-												<select class="changeFilter" name="uses">
+												<select className="changeFilter" name="uses">
                        								<option value="">請選擇</option>
                                             	</select>
 											</div>
@@ -73,11 +73,13 @@ class SearchForm extends React.Component{
 										</li>
 										<li>
 											<span>关键字</span>
-											<input type="text" class="form-control" name="keywords" value="" />
+											<input type="text" className="form-control" name="keywords" />
 										</li>
 									</ul>
-									<div class="mTD20">
-						                <button type="submit" class="btn btnSearch btn-block"><span class="glyphicon glyphicon-search"></span></button>
+									<div className="mTD20">
+						                <button type="submit" className="btn btnSearch btn-block">
+						                	搜索
+						                </button>
 						            </div>
 								</form>
 							</div>
