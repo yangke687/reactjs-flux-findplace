@@ -1,9 +1,13 @@
 import React from 'react';
 
 class UsesSelect extends React.Component{
+	handleChange(evt){
+		let val = evt.target.value;
+		this.props.handleChange('uses',val);
+	}
 	render(){
 		return (
-			<select ref="uses">
+			<select ref="uses" onChange={this.handleChange.bind(this)}>
 				<option value="">活动性质</option>
 				<option value="1">会议</option>	
 				<option value="2">派对</option>	
