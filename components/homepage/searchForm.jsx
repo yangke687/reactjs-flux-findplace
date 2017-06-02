@@ -9,11 +9,11 @@ class searchForm extends React.Component{
 	}
 	handleSubmit(evt){
 		evt.preventDefault();
-		const uses = this.state.uses;
-		const county = this.state.county;
-		const max_people = this.state.max_people;
-		const keywords = this.state.keywords;
-		const path = `/search/${uses}/${county}/${max_people}/${keywords}`;
+		const uses = this.state.uses ? '/'+this.state.uses : '';
+		const county = this.state.county ? '/'+this.state.county : '';
+		const max_people = this.state.max_people ? '/'+this.state.max_people : '';
+		const keywords = this.state.keywords ? '/'+this.state.keywords : '';
+		const path = `/search${uses}${county}${max_people}${keywords}`;
 		hashHistory.push(path);
 	}
 	handleChange(key,evt){
