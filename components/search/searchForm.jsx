@@ -1,6 +1,9 @@
 import React from 'react';
 
 class SearchForm extends React.Component{
+	handleSubmit(evt){
+		evt.preventDefault();
+	}
 	render(){
 		return (
 			<div className="container">
@@ -8,7 +11,7 @@ class SearchForm extends React.Component{
 					<div className="col-xs-12 mT100">
 						<div id="phoneSearchNavbar">
 							<div className="hidden-print searchNavbar">
-								<form id="searchForm">
+								<form id="searchForm" onSubmit={this.handleSubmit.bind(this)}>
 									<ul className="nav">
 										<li>
 											<span>目的</span>
@@ -21,7 +24,7 @@ class SearchForm extends React.Component{
 										<li>
 											<span>活动人数</span>
 											<div className="searchSelect">
-												<select className="changeFilter" name="uses">
+												<select className="changeFilter" name="max_people">
                        								<option value="">请选择</option>
                                             	</select>
 											</div>
@@ -29,7 +32,7 @@ class SearchForm extends React.Component{
 										<li>
 											<span>地点</span>
 											<div className="searchSelect">
-												<select className="changeFilter" name="uses">
+												<select className="changeFilter" name="county">
                        								<option value="">请选择</option>
                                             	</select>
 											</div>
@@ -37,7 +40,7 @@ class SearchForm extends React.Component{
 										<li>
 											<span>每小时预算上限</span>
 											<div className="searchSelect">
-												<select className="changeFilter" name="uses">
+												<select className="changeFilter" name="maxHrPrice">
                        								<option value="">请选择</option>
                                             	</select>
 											</div>
@@ -45,8 +48,8 @@ class SearchForm extends React.Component{
 										<li>
 											<span>每小时最低预算</span>
 											<div className="searchSelect">
-												<select className="changeFilter" name="uses">
-                       								<option value="">請選擇</option>
+												<select className="changeFilter" name="minHrPrice">
+                       								<option value="">请选择</option>
                                             	</select>
 											</div>
 										</li>
