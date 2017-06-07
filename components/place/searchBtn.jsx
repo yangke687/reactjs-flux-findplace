@@ -7,7 +7,7 @@ class SearchBtn extends React.Component{
 				<div className="hidden-print searchResultNavBar">
 					<a href="#">
 						<div className="btnReset">
-							<div class="btnResetSubmit">
+							<div className="btnResetSubmit">
                                 <span>重新设置搜索条件</span>
                             </div>
 						</div>

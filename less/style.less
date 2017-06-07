@@ -163,6 +163,15 @@ img{
 
 /* common elements style */
 
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+.row{
+   .ml(-15);
+   .mr(-15);
+}
+
 .mT100{
     .mt(100);
 }
@@ -174,6 +183,10 @@ img{
 .col-xs-12{
     width: 100%;
     float: left;
+    position: relative;
+    min-height: 1px;
+    .pl(15);
+    .pr(15);
 }
 
 .container{
@@ -181,6 +194,25 @@ img{
     margin-left: auto;
     .pl(15);
     .pr(15);
+}
+
+.pull-left {
+    float: left!important;
+}
+
+.pull-right {
+    float: right!important;
+}
+
+.clear{
+    clear: both;
+}
+
+.clear:after {
+    content: '';
+    display: block;
+    clear: both;
+    visibility: hidden;
 }
 
 /* navbar */
