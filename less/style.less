@@ -159,3 +159,54 @@ form{
 img{
 	border-style: none;
 }
+
+/* common elements style */
+
+.mT100{
+    .mt(100);
+}
+
+.mT20{
+    .mt(20);
+}
+
+/* navbar */
+.navbar-default{
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+}   
+.navbar-fixed-top{
+    top: 0;
+    border-width: 0 0 1px;
+}
+.navbar-fixed-top, .navbar-fixed-bottom {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+.navbar {
+    min-height: 50px;
+    margin-bottom: 20px;
+}
+.container#mobileNavbarArea{
+    text-align: center;
+    .navbar-header{
+        .mr(-15);
+        .ml(-15);
+    }
+    .mobilePickoneLogo{
+        text-decoration: none;
+        height: 50px;
+        display: block;
+        background-image: url(../images/logoWhite.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-color: #F08646;
+        .background-size(120px);
+        transition: background-color 1s, background-image 1s, width 0.3s;
+        em{
+            display: none;
+        }
+    }
+}
