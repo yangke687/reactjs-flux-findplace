@@ -20,7 +20,7 @@ class PlaceDetail extends React.Component{
 					<p>
 						<b>*</b>
 						如欲场勘须自行订购1小时//沒有额外提供场布及场复时间//以时间而非人数计费<br />
-						<u><a href="#" target="_blank">点此与场地联络</a></u>
+						<u><a href="#" target="_blank">点此与场地联系</a></u>
 					</p>
 				</div>
 			</div>

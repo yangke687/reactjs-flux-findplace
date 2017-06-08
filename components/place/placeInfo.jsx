@@ -40,7 +40,7 @@ class PlaceInfo extends React.Component{
                             &nbsp; / &nbsp;
                             <a href="#"> 聚会餐饮</a>
                             &nbsp; / &nbsp; 
-                            <a href="#"> 教育訓練</a>
+                            <a href="#"> 教育训练</a>
                         </div>
                 	</div>
                     <div className="pull-right mT20">
