@@ -3,6 +3,8 @@ import NavBar from './search/navbar';
 import SearchBtn from './place/searchBtn';
 
 import PlaceInfo from './place/placeInfo';
+import PlaceDetail from './place/placeDetail';
+import PlaceSiteTime from './place/placeSiteTime';
 
 class AppPlace extends React.Component{
 	render(){
@@ -15,6 +17,8 @@ class AppPlace extends React.Component{
 						<div className="col-xs-12">
 							<div className="mobileProgramArea">
 								<PlaceInfo />
+								<PlaceDetail />
+								<PlaceSiteTime />
 							</div>
 						</div>
 					</div>
