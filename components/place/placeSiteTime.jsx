@@ -398,9 +398,9 @@ class PlaceSiteTime extends React.Component{
 	render(){
 		return (
 			<div className="clear programSiteTime">
-				<div className="calendar">
+				<div className="calendar clear">
 					<h4 className="eachProgramTitle">适用时间</h4>
-					<div className="calendar">
+					<div className="calendar clear">
 						<div className="weekArea">
 							<div style={{"visibility":"hidden","minWidth": "50px","height":"22px"}}>week</div>
 						    <div className="time">06:00</div>
@@ -419,6 +419,20 @@ class PlaceSiteTime extends React.Component{
 						{availableHours.map((availableHours,i)=>{
 							return <HoursItem {...availableHours} key={i} />;
 						})}
+					</div>
+				</div>
+				<div className="programSpace clear mT20">
+					<h4 className="eachProgramTitle">场地单位</h4>
+					<div className="spaceLogo clear">
+                        <h5>
+                        	<a href="#">Treerful 小树屋｜古亭 302｜</a>
+                        </h5>
+                    </div>
+                    <div className="text-center"> 
+                        <button className="btnBook book">我有问题</button>
+                    </div>
+                    <div className="programRemindArea">
+                        <p>请确认价格、人数、时段皆符合需求再进行点选预约，点选预约已确定遵守场地主之<b>使用规范</b>，场地确认预定以后，将以Email方式回复确认</p>
 					</div>
 				</div>
 			</div>
