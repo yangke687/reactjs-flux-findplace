@@ -7,13 +7,14 @@ import PlaceDetail from './place/placeDetail';
 import PlaceSiteTime from './place/placeSiteTime';
 import PlaceDevice from './place/programDevice';
 import AMap from './place/amap';
+import Footer from './footer';
 
 class AppPlace extends React.Component{
 	render(){
 		return (
-			<div className="single-place">
+			<div className="single-place clear">
 				<NavBar />
-				<div className="container">
+				<div className="container clear">
 					<div className="row">
 						<SearchBtn />
 						<div className="col-xs-12">
@@ -30,6 +31,7 @@ class AppPlace extends React.Component{
 						</div>
 					</div>
 				</div>
+				<Footer />
 			</div>
 		);
 	}
