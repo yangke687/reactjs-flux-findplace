@@ -5,6 +5,7 @@ import SearchBtn from './place/searchBtn';
 import PlaceInfo from './place/placeInfo';
 import PlaceDetail from './place/placeDetail';
 import PlaceSiteTime from './place/placeSiteTime';
+import PlaceDevice from './place/programDevice';
 
 class AppPlace extends React.Component{
 	render(){
@@ -19,6 +20,7 @@ class AppPlace extends React.Component{
 								<PlaceInfo />
 								<PlaceDetail />
 								<PlaceSiteTime />
+								<PlaceDevice />
 							</div>
 						</div>
 					</div>
