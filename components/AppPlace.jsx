@@ -8,6 +8,7 @@ import PlaceSiteTime from './place/placeSiteTime';
 import PlaceDevice from './place/programDevice';
 import AMap from './place/amap';
 import Footer from './footer';
+import FixedBtn from './FixedBtn';
 
 class AppPlace extends React.Component{
 	render(){
@@ -32,6 +33,7 @@ class AppPlace extends React.Component{
 					</div>
 				</div>
 				<Footer />
+				<FixedBtn />
 			</div>
 		);
 	}
