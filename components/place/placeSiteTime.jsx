@@ -424,7 +424,7 @@ class PlaceSiteTime extends React.Component{
 				<div className="programSpace clear mT20">
 					<h4 className="eachProgramTitle">场地单位</h4>
 					<div className="spaceLogo clear">
-                        <h5>
+                        <h5 className="text-center">
                         	<a href="#">Treerful 小树屋｜古亭 302｜</a>
                         </h5>
                     </div>

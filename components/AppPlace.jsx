@@ -6,6 +6,7 @@ import PlaceInfo from './place/placeInfo';
 import PlaceDetail from './place/placeDetail';
 import PlaceSiteTime from './place/placeSiteTime';
 import PlaceDevice from './place/programDevice';
+import AMap from './place/amap';
 
 class AppPlace extends React.Component{
 	render(){
@@ -21,6 +22,10 @@ class AppPlace extends React.Component{
 								<PlaceDetail />
 								<PlaceSiteTime />
 								<PlaceDevice />
+								<AMap />
+								<div className="text-right">
+                    				<button className="btnBook book btnEdge">我有问题</button>
+               					</div>
 							</div>
 						</div>
 					</div>

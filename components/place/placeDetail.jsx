@@ -16,7 +16,7 @@ class PlaceDetail extends React.Component{
 				<div className="calendar">
 					<h4 className="eachProgramTitle">价格</h4>
 					<p>每时段收费<b>200</b>元</p>
-					<p>可使用<b>1</b>小小时</p>
+					<p>可使用<b>1</b>小时</p>
 					<p>
 						<b>*</b>
 						如欲场勘须自行订购1小时//沒有额外提供场布及场复时间//以时间而非人数计费<br />

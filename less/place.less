@@ -144,17 +144,6 @@
 					font-weight: 500;
 				}
 			}
-			.btnBook{
-				cursor: pointer;
-			    background-color: #F08646;
-			    color: #fff;
-			    .pt(10);
-			    .pb(10);
-			    .pl(20);
-			    .pr(20);
-			    .fs(18);
-			    .border-radius(4px);
-			}
 			.programRemindArea {
 				.mt(40);
 				.mb(40);
@@ -178,6 +167,17 @@
 	    .pl(15);
 	    .pr(15);
 	    .fs(16);
+	}
+	.btnBook{
+		cursor: pointer;
+	    background-color: #F08646;
+	    color: #fff;
+	    .pt(10);
+	    .pb(10);
+	    .pl(20);
+	    .pr(20);
+	    .fs(18);
+	    .border-radius(4px);
 	}
 	.ProgramDevice{
 		.programDeviceArea{
@@ -206,6 +206,23 @@
 			    .pt(5);
 			    .pl(20);
 			}
+		}
+	}
+	.amapSpace{
+		.pt(20);
+		.pb(5);
+		.eachProgramTitle{
+			margin-bottom: 0 !important;
+			& ~ .address{
+				display: inline-block;
+				.mt(10);
+				.mb(20);
+	    		.mr(10);
+	    		.fs(14);
+			}
+		}
+		.gd{
+			.h(400);
 		}
 	}
 }
