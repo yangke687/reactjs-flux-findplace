@@ -1,4 +1,5 @@
 import React from 'react';
+import PlaceGallery from './placeGallery';
 
 class PlaceInfo extends React.Component{
 	render(){
@@ -47,6 +48,7 @@ class PlaceInfo extends React.Component{
                         <span className="btn btnHour">总价 $200/1hr</span>
                     </div>
                 </div>
+                <PlaceGallery />
             </div>
 		);
 	}
