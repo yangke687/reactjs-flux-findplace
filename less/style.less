@@ -5,6 +5,7 @@
 @import "search.less";
 @import "place.less";
 @import "footer.less";
+@import "bill.less";
 
 .fs(@px){
 	font-size: unit(@px / 37.5, rem);
@@ -203,6 +204,19 @@ img{
     box-sizing: border-box;
 }
 
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+}
+
 .row{
    .ml(-15);
    .mr(-15);
@@ -230,6 +244,10 @@ img{
     margin-left: auto;
     .pl(15);
     .pr(15);
+    &:before{
+        content: " ";
+        display: table;
+    }
 }
 
 .pull-left {
@@ -290,4 +308,22 @@ img{
             display: none;
         }
     }
+}
+
+.col-xs-5 {
+    float: left;
+    width: 41.66666667%;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.col-xs-6 {
+    float: left;
+    width: 50%;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
