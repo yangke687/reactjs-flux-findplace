@@ -1,4 +1,5 @@
 import React,{ Component } from 'react';
+import TimeList from './timeList';
 
 const data = {
   header: {
@@ -19,6 +20,8 @@ class Month extends Component {
   constructor(props) {
 		super(props);
 		this.state = {
+      selectedYear: '2017',
+      selectedMonth: '06',
 			selectedDay: null,
       showTimeList: false,
 		};
@@ -53,37 +56,43 @@ class Month extends Component {
 
   render() {
     return (
-      <div className="bookCalendar">
-        <div className="calendarHeader clear">
-          <h4>{data.header.month}</h4>
-          <span>{data.header.year}</span>
-          <ul>
-            <li>
-              <a className="lastMonth" href="javascirpt:void(0);" year="2017" month="05">
-                <span className="glyphicon glyphicon-chevron-left"></span>
-              </a>
-            </li>
-            <li>
-              <a className="nextMonth" href="javascript:void(0);" year="2017" month="07">
-                <span className="glyphicon glyphicon-chevron-right"></span>
-              </a>
-            </li>
-          </ul>
+      <div className="col-md-12">
+        <div className="bookCalendar">
+          <div className="calendarHeader clear">
+            <h4>{data.header.month}</h4>
+            <span>{data.header.year}</span>
+            <ul>
+              <li>
+                <a className="lastMonth" href="javascirpt:void(0);" year="2017" month="05">
+                  <span className="glyphicon glyphicon-chevron-left"></span>
+                </a>
+              </li>
+              <li>
+                <a className="nextMonth" href="javascript:void(0);" year="2017" month="07">
+                  <span className="glyphicon glyphicon-chevron-right"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <table className="monthlyTable">
+            <tbody>
+              <tr align="center" className="week_text">
+                <th>ㄧ</th>
+                <th>二</th>
+                <th>三</th>
+                <th>四</th>
+                <th>五</th>
+                <th>六</th>
+                <th>日</th>
+              </tr>
+              {this.renderWeeks(data.weeks)}
+            </tbody>
+          </table>
         </div>
-        <table className="monthlyTable">
-          <tbody>
-            <tr align="center" className="week_text">
-              <th>ㄧ</th>
-              <th>二</th>
-              <th>三</th>
-              <th>四</th>
-              <th>五</th>
-              <th>六</th>
-              <th>日</th>
-            </tr>
-            {this.renderWeeks(data.weeks)}
-          </tbody>
-        </table>
+        { this.state.showTimeList ? <TimeList 
+          year={this.state.selectedYear} 
+          month={this.state.selectedMonth} 
+          day={this.state.selectedDay} />: null }
       </div>
     );
   }

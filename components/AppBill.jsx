@@ -8,9 +8,7 @@ class AppBill extends Component{
 			<div className="bill clear">
 				<NavBar />
 				<div className="col-sm-9 col-md-9 mT100" style={{"backgroundColor":"#FFF"}}>
-					<div className="col-md-12">
-						<Month />
-					</div>
+					<Month />
 				</div>
 			</div>
 		);
