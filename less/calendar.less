@@ -58,6 +58,36 @@
     width: 100%;
     display: inline-block;
   }
+  .choiceTimeArea{
+    float: left;
+    width: 16%;
+    margin-left: 0.66%;
+    li{
+      .pt(14);
+      .pb(14);
+      .pl(8);
+      .pr(8);
+      background-color: #E9E9E9;
+      .mb(10);
+      .fs(12);
+      text-align: center;
+      border: #E0E0E0 solid 1px;
+      width: 100%;
+      cursor: pointer;
+      span{
+        color: #C3C3C3;
+      }
+      &.ableTime{
+        background-color: #FFF;
+        span{
+          color: #000;
+        }
+      }
+      &.selectedTime{
+        background-color: #FFAD5C !important;
+      }
+    }
+  }
 }
 /* bookCalendar */
 .bookCalendar{
