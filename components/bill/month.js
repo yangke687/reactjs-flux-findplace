@@ -16,19 +16,35 @@ const data = {
 
 class Month extends Component {
 
+  constructor(props) {
+		super(props);
+		this.state = {
+			selectedDay: null,
+      showTimeList: false,
+		};
+	}
+
+  handleClick(day){
+    if(!day.stat) {
+      return;
+    }
+    this.setState({selectedDay: day.d, showTimeList: true});
+  }
+
   renderDays(days) {
-    return days.map( day => {
-      const cls = day.stat?'choiceDay':'disabled';
-      return (<td>
-        {day.d ? <a href="javascript:void(0);" className={cls}>{day.d}</a> : ' ' }
+    return days.map( (day,idx) => {
+      let cls = day.stat?'choiceDay':'disabled';
+      if( this.state.selectedDay === day.d ) cls += ' selectedDate';
+      return (<td key={idx}>
+        {day.d ? <a href="javascript:void(0);" onClick={this.handleClick.bind(this,day)} className={cls}>{day.d}</a> : ' ' }
       </td>);
     });
   }
 
   renderWeeks(weeks) {
-    return weeks.map( week => {
+    return weeks.map( (week,idx) => {
       return (
-        <tr>
+        <tr key={idx}>
           {this.renderDays(week)}
         </tr>
       );
