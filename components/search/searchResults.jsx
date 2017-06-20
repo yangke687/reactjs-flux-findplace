@@ -9,9 +9,9 @@ class SearchResultsItem extends React.Component{
 					style={{"backgroundImage":"url('" + this.props.img +"')"}}></div>
 			</Link>
 			<div className="searchProgramContentArea">
-				<a href="#">
+				<Link to={'/place/'+this.props.id}>
 					<h2>【{this.props.name}】{this.props.desc}</h2>
-				</a>
+				</Link>
 				<div className="saerchProgramIconArea">
 					<div className="mD5">
                         <span className="programIcon">
