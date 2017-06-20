@@ -47,6 +47,8 @@ gulp.task('compress', function() {
 gulp.task('copy', function() {
   gulp.src('./images/**/*')
     .pipe(gulp.dest('./dist/images'));
+  gulp.src('./vendors/**/*')
+    .pipe(gulp.dest('./dist/vendors'));
 });
 
 gulp.task('browsersync', function() {
