@@ -13,7 +13,7 @@ class BillHeader extends Component {
           <div className="bottomArrowWhite"></div>
           <div className="bottomArrow"></div>
         </div>
-        <div className="steps col-md-12">
+        <div className="steps text-center col-md-12">
           <h3 className="text-center">预定场地</h3>
           <div className="col-md-12">
             <section className="paymentWrapper">

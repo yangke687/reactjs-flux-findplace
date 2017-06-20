@@ -19,6 +19,9 @@ class TimeList extends Component {
   }
 
   handleTimeClick(time) {
+    if(!time.stat) {
+      return;
+    }
     if(!_.contains(this.state.selectedTimes,time.time)) {
       this.setState({
         selectedTimes: [ ...this.state.selectedTimes, time.time ]
