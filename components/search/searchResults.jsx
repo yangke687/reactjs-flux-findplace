@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 class SearchResultsItem extends React.Component{
 	render(){
-		return (<div className="mobileSearchResltArea">
+		return (<div className="mobileSearchResltArea" key={this.props.id}>
 			<Link to={'/place/'+this.props.id} className="logProgramClick">
 				<div className="searchProgramImgArea" 
 					style={{"backgroundImage":"url('" + this.props.img +"')"}}></div>
@@ -29,7 +29,7 @@ class SearchResultsItem extends React.Component{
                         <span className="programIcon">
                     		<img src="/images/tags.png" />
                     		{this.props.uses.map((use,i)=>{
-                    			return  (<span><a href="#" className="use" key={i}>{use}</a><b>/</b></span>);
+                    			return  (<span key={i}><a href="#" className="use" key={i}>{use}</a><b>/</b></span>);
                     		})}
                         </span>
                     </div>

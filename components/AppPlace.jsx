@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import NavBar from './search/navbar';
 import SearchBtn from './place/searchBtn';
 
@@ -11,6 +12,9 @@ import Footer from './footer';
 import FixedBtn from './place/FixedBtn';
 
 class AppPlace extends React.Component{
+	componentDidMount() {
+  	window.scrollTo(0,0);
+	}
 	render(){
 		return (
 			<div className="single-place clear">
