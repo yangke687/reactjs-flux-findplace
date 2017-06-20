@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class SelectedPlaceItem extends React.Component{
 	render(){
 		return (<div>
-			<a href="#">
+			<Link to={'/place/'+this.props.id}>
 				<article className="imgUnitLong">
 					<div className="imgLong" style={{backgroundImage: "url('" + this.props.img + "')"}}></div>
 					<h3>{this.props.name}</h3>
 				</article>
-			</a>
+			</Link>
 		</div>);
 	}
 }

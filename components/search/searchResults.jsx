@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class SearchResultsItem extends React.Component{
 	render(){
 		return (<div className="mobileSearchResltArea">
-			<a href="#" className="logProgramClick">
+			<Link to={'/place/'+this.props.id} className="logProgramClick">
 				<div className="searchProgramImgArea" 
 					style={{"backgroundImage":"url('" + this.props.img +"')"}}></div>
-			</a>
+			</Link>
 			<div className="searchProgramContentArea">
 				<a href="#">
 					<h2>【{this.props.name}】{this.props.desc}</h2>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class PlaceItem extends React.Component{
 	render(){
@@ -11,12 +12,12 @@ class PlaceItem extends React.Component{
 		}
 		return (
 			<div>
-				<a href="#">
+				<Link to={'/place/'+this.props.id}>
 					<div className="imgOneThird" style={{backgroundImage: "url('" + this.props.img + "')"}}>
 						<div className="infoTag">{this.props.city}&nbsp;•&nbsp;{this.props.scale}</div>
 						<div>{this.props.price}</div>
 					</div>
-				</a>
+				</Link>
 				{hr}
 			</div>
 		);
