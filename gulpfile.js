@@ -52,12 +52,14 @@ gulp.task('copy', function() {
     .pipe(gulp.dest('./dist/images'));
   gulp.src('./vendors/**/*')
     .pipe(gulp.dest('./dist/vendors'));
+  gulp.src('./index.html')
+    .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('browsersync', function() {
   browsersync({
     server: {
-      baseDir: './'
+      baseDir: './dist'
     }
   });
   gulp.watch("./*.js", ['build']);
