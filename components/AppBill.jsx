@@ -3,7 +3,7 @@ import NavBar from './bill/navbar';
 import Month from './bill/month';
 import BillHeader from './bill/header';
 import BillForm from './bill/form';
-import Footer from './footer';
+import Footer from './Footer';
 
 class AppBill extends Component{
 	render(){

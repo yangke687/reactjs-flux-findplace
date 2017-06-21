@@ -8,7 +8,7 @@ import PlaceDetail from './place/placeDetail';
 import PlaceSiteTime from './place/placeSiteTime';
 import PlaceDevice from './place/programDevice';
 import AMap from './place/amap';
-import Footer from './footer';
+import Footer from './Footer';
 import FixedBtn from './place/FixedBtn';
 
 class AppPlace extends React.Component{
