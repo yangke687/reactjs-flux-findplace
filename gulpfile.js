@@ -10,6 +10,7 @@ var less = require('gulp-less');
 var connect = require('connect');
 var serve = require('serve-static');
 var browsersync = require('browser-sync');
+var buffer = require('vinyl-buffer');
 
 gulp.task('build', function() {
   return browserify({
@@ -24,6 +25,8 @@ gulp.task('build', function() {
       this.emit('end');
     })
     .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(uglify())
     .pipe(gulp.dest('dist'))
     .pipe(browsersync.stream());;
 });
