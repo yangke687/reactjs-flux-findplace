@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import AltContainer from 'alt-container';
 import NavBar from './bill/navbar';
 import SearchBtn from './place/searchBtn';
 
@@ -11,9 +12,12 @@ import AMap from './place/amap';
 import Footer from './Footer';
 import FixedBtn from './place/FixedBtn';
 
+import PlaceStore from '../stores/PlaceStore';
+
 class AppPlace extends React.Component{
 	componentDidMount() {
   	window.scrollTo(0,0);
+		PlaceStore.fetchPlace();
 	}
 	render(){
 		return (
@@ -24,14 +28,16 @@ class AppPlace extends React.Component{
 						<SearchBtn />
 						<div className="col-xs-12">
 							<div className="mobileProgramArea">
-								<PlaceInfo />
-								<PlaceDetail />
-								<PlaceSiteTime />
+								<AltContainer store={PlaceStore}>
+									<PlaceInfo />
+									<PlaceDetail />
+									<PlaceSiteTime />
+								</AltContainer>
 								<PlaceDevice />
 								<AMap />
 								<div className="text-right">
-                    				<button className="btnBook book btnEdge">我有问题</button>
-               					</div>
+                  <button className="btnBook book btnEdge">我有问题</button>
+               	</div>
 							</div>
 						</div>
 					</div>

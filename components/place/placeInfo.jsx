@@ -3,52 +3,44 @@ import PlaceGallery from './placeGallery';
 
 class PlaceInfo extends React.Component{
 	render(){
+        console.log(this.props.place);
+        if(!this.props.place.uses) {
+            return (<div>Loading...</div>);
+        }
 		return (
 			<div>
 				<div className="clear programAreaTitle">
                     <div className="pull-left">
-                        <h1 id="room_title">Treerful 小树屋｜古亭 302｜</h1>
-                        <h2 id="room_title">完整独立空间，每小时$200元，不被打扰、不限使用人数。 
-                        	<span>
-                        		<a href="#">看场地其他方案</a>
-                        	</span>
-                        </h2>
+                        <h1 id="room_title">{this.props.place.title}</h1>
+                        <h2 id="room_title">{this.props.place.excerpt}</h2>
                     </div>
                 </div>
             	<div className="clear">
                     <div className="programShareArea">
                         <div className="tags">
                             <img src="/images/house.png" /> 
-                            <a href="#">Treerful 小树屋｜古亭 302｜</a>
+                            <a href="#">{this.props.place.title}</a>
                         </div>
                         <div className="tags">
                             <img src="/images/marker.png" /> 
-                            <a>台北市大安区</a>
+                            <a>{this.props.place.location}</a>
                         </div>
                         <div className="tags">
                             <img src="/images/person.png" />
-                            <a>0 ～ 8</a>
+                            <a>{this.props.place.min_people} ～ {this.props.place.max_people} 人</a>
                         </div>
                         <div className="tags">
                             <img src="/images/tags.png" />
-                            <a href="#"> 会议</a>
-                            &nbsp; / &nbsp;
-                            <a href="#"> 派对</a>
-                            &nbsp; / &nbsp;
-                            <a href="#"> 课程讲座</a>
-                            &nbsp; / &nbsp;
-                            <a href="#"> 拍摄摄影</a>
-                            &nbsp; / &nbsp;
-                            <a href="#"> 聚会餐饮</a>
-                            &nbsp; / &nbsp; 
-                            <a href="#"> 教育训练</a>
+                            {this.props.place.uses.map((use,i)=>{
+                                return (<span><a href="#" key={i}> {use} </a> /</span>);
+                            })}
                         </div>
                 	</div>
                     <div className="pull-right mT20">
-                        <span className="btn btnHour">总价 $200/1hr</span>
+                        <span className="btn btnHour">总价 {this.props.place.price}/1hr</span>
                     </div>
                 </div>
-                <PlaceGallery />
+                <PlaceGallery gallery={this.props.place.gallery} />
             </div>
 		);
 	}
