@@ -3,7 +3,6 @@ import PlaceGallery from './placeGallery';
 
 class PlaceInfo extends React.Component{
 	render(){
-        console.log(this.props.place);
         if(!this.props.place.uses) {
             return (<div>Loading...</div>);
         }

@@ -32,9 +32,9 @@ class AppPlace extends React.Component{
 									<PlaceInfo />
 									<PlaceDetail />
 									<PlaceSiteTime />
+									<PlaceDevice />
+									<AMap />
 								</AltContainer>
-								<PlaceDevice />
-								<AMap />
 								<div className="text-right">
                   <button className="btnBook book btnEdge">我有问题</button>
                	</div>
