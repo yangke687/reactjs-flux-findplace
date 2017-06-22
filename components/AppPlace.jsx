@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NavBar from './search/navbar';
+import NavBar from './bill/navbar';
 import SearchBtn from './place/searchBtn';
 
 import PlaceInfo from './place/placeInfo';

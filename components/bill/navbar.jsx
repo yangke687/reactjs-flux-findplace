@@ -8,7 +8,7 @@ export default class NavBar extends Component{
 					<div className="part">
 						<div className="pickoneLogoArea">
 							<a href="#" className="pickoneLogo">
-								<img src="/images/logoWhite.png" />
+								<img src="/images/gfwy.png" />
 							</a>
 						</div>
 					</div>

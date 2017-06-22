@@ -6,7 +6,7 @@ class NavBar extends React.Component{
 			<nav className="navbar navbar-default navbar-fixed-top">
 				<div className="container" id="mobileNavbarArea">
 					<div className="navbar-header">
-			            <a className="mobilePickoneLogo" href="http://www.pickoneplace.com/">
+			            <a className="mobilePickoneLogo" href="#">
 			                <em>pickone&nbsp;挑場地&nbsp;替你挑選好場地</em>
 			            </a>
 			        </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import AltContainer from 'alt-container';
 import SearchStore from '../stores/SearchStore';
 
-import NavBar from './search/navbar';
+import NavBar from './bill/navbar';
 import SearchForm from './search/searchForm';
 import SearchResults from './search/searchResults';
 
