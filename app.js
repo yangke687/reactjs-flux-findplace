@@ -12,7 +12,7 @@ import AppBill from './components/AppBill';
 
 ReactDOM.render(
 	(<Router history={hashHistory}>
-		<Route path="/" component={AppRoot} />
+		<Route path="/" component={AppSearch} />
 		<Route path="/place/:id" component={AppPlace} />
 		<Route path="/bill/:id" component={AppBill} />
 		<Route path="/search(/:uses)(/:county)(/:max_people)(/:keywords)" component={AppSearch} />
