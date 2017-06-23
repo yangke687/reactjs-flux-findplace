@@ -11,7 +11,7 @@ var mockData = {
   max_people: 8,
   uses: ['会议','派对','课程讲座','拍摄摄影','聚会餐饮','教育训练'],
   gallery: [
-    '/images/single/01.jpg',
+    '/images/single/011.jpg',
     '/images/single/02.jpg',
     '/images/single/03.jpg',
     '/images/single/04.jpg',
