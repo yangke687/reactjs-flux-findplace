@@ -10,20 +10,20 @@ class SearchResultsItem extends React.Component{
 			</Link>
 			<div className="searchProgramContentArea">
 				<Link to={'/place/'+this.props.id}>
-					<h2>【{this.props.name}】{this.props.desc}</h2>
+					<h2>【{this.props.title}】{this.props.excerpt}</h2>
 				</Link>
 				<div className="saerchProgramIconArea">
 					<div className="mD5">
                         <span className="programIcon">
                         	<img src="/images/house.png" />
-                        	<a href="#">{this.props.name}</a>
+                        	<a href="#">{this.props.title}</a>
                         </span>
                     </div>
                     <div className="mD5">
                         <span className="programIcon">
-                        <img src="/images/marker.png" />{this.props.county}</span>
+                        <img src="/images/marker.png" />{this.props.location}</span>
                         <span className="programIcon">
-                        <img src="/images/person.png" />{this.props.max_people}</span>
+                        <img src="/images/person.png" />{this.props.min_people}~{this.props.max_people}人</span>
                     </div>
 					<div className="mD5">
                         <span className="programIcon">
@@ -35,7 +35,7 @@ class SearchResultsItem extends React.Component{
                     </div>
                     <div style={{"textAlign": "center"}}>
                         <a className="logProgramClick" href="#">
-                            <span className="btn btnHour">{this.props.price}</span>
+                            <span className="btn btnHour">总价 {this.props.price}/hr</span>
                         </a>
                     </div>
 				</div>
