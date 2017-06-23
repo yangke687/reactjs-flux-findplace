@@ -13,7 +13,7 @@ var mockData = [{
 	"id": 1,
 	"title": "星耀路 都铎城邦 | 运动公园 | 足球场 | #1",
 	"location": "昆明市 官渡区",
-	"img": "/images/list/02.jpg",
+	"img": "/images/list/022.jpg",
 	"excerpt": "包场方案",
 	"min_people": 0,
 	"max_people": 10,
