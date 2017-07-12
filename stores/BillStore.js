@@ -10,6 +10,7 @@ class BillStore {
 		this.bindListeners({
 			handleUpdateMonthDays: BillActions.UPDATE_MONTH_DAYS,
 			handledMonthDaysFailed: BillActions.MONTH_DAYS_FAILED,
+			handleSelectMonth: BillActions.SELECT_MONTH,
 		});
 
 		this.exportAsync(BillSource);
@@ -17,6 +18,10 @@ class BillStore {
 
 	handleUpdateMonthDays(monthDays) {
 		this.monthDays = monthDays;
+	}
+
+	handleSelectMonth() {
+		this.monthDays = {};
 	}
 
 	handledMonthDaysFailed(errorMessage) {

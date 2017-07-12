@@ -18,19 +18,19 @@ import { API_URL } from './config';
 export default {
 	fetchMonthDays() {
 		return {
-			remote() {
+			remote(state) {
+				console.log('remote', state);
 				return fetch(`${API_URL}/placeMonthUsable.do?`,{
 					method: 'GET'
 				}).then(res => {
 					return res.json().then(json => {
-						console.log(json.DATA);
 						return json.DATA;
 					});
 				});
 			},
 
-			local() {
-				
+			local(state) {
+				console.log('local', state);
 			},
 
 			success: BillActions.updateMonthDays,

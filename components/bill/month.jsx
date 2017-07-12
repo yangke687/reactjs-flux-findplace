@@ -50,15 +50,40 @@ class Month extends Component {
     });
   }
 
-  setToLastMonth() {
-    const monthDays = {
-      header: {
-        year: '2017',
-        month: '06',
-      },
-      weeks: [],
-    };
-    BillActions.updateMonthDays();
+  getSelectedYearAndMonth() {
+    const year = this.state.selectedYear?
+      parseInt(this.state.selectedYear) : 
+      new Date().getFullYear();
+    const month = this.state.selectedMonth?
+      parseInt(this.state.selectedMonth) :
+       new Date().getMonth()+1;
+    return [ year, month ];
+  }
+
+  setToLastMonth(evt) {
+    evt.preventDefault();
+    let [year, month] = this.getSelectedYearAndMonth();
+    if(month===1) {
+      year = year-1;
+      month = 12;
+    } else {
+      month = month-1;
+    }
+    // invoke actions
+    BillActions.selectMonth(year, month);
+  }
+
+  setToNextMonth(evt) {
+    evt.preventDefault();
+    let [year, month] = this.getSelectedYearAndMonth();
+    if(month===12) {
+      year = year+1;
+      month = 1;
+    } else {
+      month = month + 1;
+    }
+    // invoke actions
+    BillActions.selectMonth(year, month);
   }
 
   render() {
@@ -75,16 +100,18 @@ class Month extends Component {
               <li>
                 <a 
                   className="lastMonth" 
-                  href="javascirpt:void(0);" 
-                  year="2017" 
-                  month="05"
-                  onClick={this.setToLastMonth}
+                  href="javascirpt:void(0);"
+                  onClick={this.setToLastMonth.bind(this)}
                 >
                   <span className="glyphicon glyphicon-chevron-left"></span>
                 </a>
               </li>
               <li>
-                <a className="nextMonth" href="javascript:void(0);" year="2017" month="07">
+                <a 
+                  className="nextMonth" 
+                  href="javascript:void(0);"
+                  onClick={this.setToNextMonth.bind(this)}
+                >
                   <span className="glyphicon glyphicon-chevron-right"></span>
                 </a>
               </li>
