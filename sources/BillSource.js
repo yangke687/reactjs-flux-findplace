@@ -1,8 +1,9 @@
 import BillActions from '../actions/BillActions';
+import { API_URL } from './config';
 
-const mockMonthDays = {
+/*const mockMonthDays = {
 	header: {
-    month: '06',
+    month: '07',
     year: '2017',
   },
   weeks: [
@@ -12,28 +13,24 @@ const mockMonthDays = {
     [{d:19,stat:true},{d:20,stat:true},{d:21,stat:true},{d:22,stat:true},{d:23,stat:true},{d:24,stat:true},{d:25,stat:true}],
     [{d:26,stat:true},{d:27,stat:true},{d:28,stat:true},{d:29,stat:true},{d:30,stat:true},{d:null,stat:false},{d:null,stat:false}],
   ],
-};
+};*/
 
 export default {
-	fetchMonthDays(month) {
-		if(!month) {
-			const month = new Date().getMonth()+1;
-		}
+	fetchMonthDays() {
 		return {
 			remote() {
-				return new Promise((resolve, reject) => {
-					setTimeout(() => {
-						if(true) {
-							resolve(mockMonthDays);
-						} else {
-							reject('something wrong');
-						}
-					},250);
+				return fetch(`${API_URL}/placeMonthUsable.do?`,{
+					method: 'GET'
+				}).then(res => {
+					return res.json().then(json => {
+						console.log(json.DATA);
+						return json.DATA;
+					});
 				});
 			},
 
 			local() {
-
+				
 			},
 
 			success: BillActions.updateMonthDays,

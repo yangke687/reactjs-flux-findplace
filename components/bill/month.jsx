@@ -1,5 +1,6 @@
 import React,{ Component } from 'react';
 import TimeList from './timeList';
+import BillActions from '../../actions/BillActions';
 
 class Month extends Component {
 
@@ -49,6 +50,17 @@ class Month extends Component {
     });
   }
 
+  setToLastMonth() {
+    const monthDays = {
+      header: {
+        year: '2017',
+        month: '06',
+      },
+      weeks: [],
+    };
+    BillActions.updateMonthDays();
+  }
+
   render() {
     if(!this.state.monthDays.header) {
       return <div>Loading...</div>;
@@ -61,7 +73,13 @@ class Month extends Component {
             <span>{this.state.monthDays.header.year}</span>
             <ul>
               <li>
-                <a className="lastMonth" href="javascirpt:void(0);" year="2017" month="05">
+                <a 
+                  className="lastMonth" 
+                  href="javascirpt:void(0);" 
+                  year="2017" 
+                  month="05"
+                  onClick={this.setToLastMonth}
+                >
                   <span className="glyphicon glyphicon-chevron-left"></span>
                 </a>
               </li>
