@@ -1,31 +1,26 @@
 import React,{ Component } from 'react';
 import TimeList from './timeList';
 
-const data = {
-  header: {
-    month: '06',
-    year: '2017',
-  },
-  weeks: [
-    [{d:null,stat:false},{d:null,stat:false},{d:null,stat:false},{d:1,stat:false},{d:2,stat:false},{d:3,stat:false},{d:4,stat:false}],
-    [{d:5,stat:false},{d:6,stat:false},{d:7,stat:false},{d:8,stat:false},{d:9,stat:false},{d:10,stat:false},{d:11,stat:false}],
-    [{d:12,stat:false},{d:13,stat:false},{d:14,stat:false},{d:15,stat:false},{d:16,stat:false},{d:17,stat:false},{d:18,stat:false}],
-    [{d:19,stat:true},{d:20,stat:true},{d:21,stat:true},{d:22,stat:true},{d:23,stat:true},{d:24,stat:true},{d:25,stat:true}],
-    [{d:26,stat:true},{d:27,stat:true},{d:28,stat:true},{d:29,stat:true},{d:30,stat:true},{d:null,stat:false},{d:null,stat:false}],
-  ],
-};
-
 class Month extends Component {
 
   constructor(props) {
 		super(props);
 		this.state = {
-      selectedYear: '2017',
-      selectedMonth: '06',
+      selectedYear: '1970',
+      selectedMonth: '01',
 			selectedDay: null,
       showTimeList: false,
+      monthDays: {},
 		};
 	}
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      monthDays: nextProps.monthDays,
+      selectedYear: nextProps.monthDays.header.year,
+      selectedMonth: nextProps.monthDays.header.month,
+    });
+  }
 
   handleClick(day){
     if(!day.stat) {
@@ -55,12 +50,15 @@ class Month extends Component {
   }
 
   render() {
+    if(!this.state.monthDays.header) {
+      return <div>Loading...</div>;
+    }
     return (
       <div className="col-md-12">
         <div className="bookCalendar">
           <div className="calendarHeader clear">
-            <h4>{data.header.month}</h4>
-            <span>{data.header.year}</span>
+            <h4>{this.state.monthDays.header.month}</h4>
+            <span>{this.state.monthDays.header.year}</span>
             <ul>
               <li>
                 <a className="lastMonth" href="javascirpt:void(0);" year="2017" month="05">
@@ -77,15 +75,15 @@ class Month extends Component {
           <table className="monthlyTable">
             <tbody>
               <tr align="center" className="week_text">
+                <th>日</th>
                 <th>ㄧ</th>
                 <th>二</th>
                 <th>三</th>
                 <th>四</th>
                 <th>五</th>
                 <th>六</th>
-                <th>日</th>
               </tr>
-              {this.renderWeeks(data.weeks)}
+              {this.renderWeeks(this.state.monthDays.weeks)}
             </tbody>
           </table>
         </div>
