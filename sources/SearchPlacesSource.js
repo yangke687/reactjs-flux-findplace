@@ -1,4 +1,5 @@
 import SearchActions from '../actions/SearchActions';
+import { API_URL } from './config';
 var mockData = [{
 	"id": 0,
 	"title": "星耀路 都铎城邦｜运动公园 | 水吧",
@@ -45,15 +46,12 @@ export default {
 	fetchSearchPlaces(){
 		return {
 			remote(){
-				return new Promise(function(resovle,reject){
-					setTimeout(function(){
-						if(true){
-							resovle(mockData);
-						}
-						else{
-							reject("something wrong")
-						}
-					},250);
+				return fetch(`${API_URL}/placeList.do?`,{
+					method: 'GET'
+				}).then(res => {
+					return res.json().then(json => {
+						return json.DATA;
+					});
 				});
 			},
 			local(){

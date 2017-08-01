@@ -19,7 +19,6 @@ export default {
 	fetchMonthDays() {
 		return {
 			remote(state) {
-				console.log('remote', state);
 				return fetch(`${API_URL}/placeMonthUsable.do?`,{
 					method: 'GET'
 				}).then(res => {
@@ -30,7 +29,7 @@ export default {
 			},
 
 			local(state) {
-				console.log('local', state);
+				
 			},
 
 			success: BillActions.updateMonthDays,
