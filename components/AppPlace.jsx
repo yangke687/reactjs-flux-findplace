@@ -12,12 +12,14 @@ import AMap from './place/amap';
 import Footer from './Footer';
 import FixedBtn from './place/FixedBtn';
 
+import PlaceActions from '../actions/PlaceActions';
 import PlaceStore from '../stores/PlaceStore';
 
 class AppPlace extends React.Component{
 	componentDidMount() {
   	window.scrollTo(0,0);
-		PlaceStore.fetchPlace();
+		const id = this.props? this.props.params.id: null;
+		PlaceActions.fetchPlace(id);
 	}
 	render(){
 		return (
