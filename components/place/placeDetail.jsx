@@ -31,14 +31,7 @@ class PlaceDetail extends React.Component{
 				<p>本方案的场地大小约为<b>{this.props.place.area}</b>平</p>
 				<p>本方案包场<b>沒有最少人数限制</b></p>
 				<p>场地容纳人数<b>最多{this.props.place.max_people}</b>人</p>
-				{this.props.place.contents.map((con,idx) => {
-					return (
-						<div key={idx}>
-							<h5>{con.title}</h5>
-							<p>{con.content}</p>
-						</div>
-					);
-				})}
+				<div dangerouslySetInnerHTML={{__html: this.props.place.contents}} />
 			</div>
 		</div>
 		);
