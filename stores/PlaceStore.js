@@ -1,6 +1,6 @@
 var alt = require('../alt');
 var PlaceActions = require('../actions/PlaceActions');
-var PlaceSource = require('../sources/PlaceSource');
+//var PlaceSource = require('../sources/PlaceSource');
 
 class PlaceStore {
   constructor() {
@@ -8,11 +8,15 @@ class PlaceStore {
     this.errorMessage = null;
 
     this.bindListeners({
+      handleFetchPlace: PlaceActions.FETCH_PLACE,
       handleUpdatePlace: PlaceActions.UPDATE_PLACE,
       handlePlaceFailed: PlaceActions.PLACE_FAILED,
     });
+    //this.exportAsync(PlaceSource);
+  }
 
-    this.exportAsync(PlaceSource);
+  handleFetchPlace() {
+    this.place = {};
   }
 
   handleUpdatePlace(place) {
@@ -22,6 +26,10 @@ class PlaceStore {
 
   handlePlaceFailed(errorMessage) {
     this.errorMessage = errorMessage;
+  }
+
+  handleUpdatePlaceId(placeId) {
+    this.placeId = placeId;
   }
 }
 

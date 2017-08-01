@@ -1,11 +1,18 @@
-var alt = require('../alt');
+import alt from '../alt';
+import PlaceSource from '../sources/PlaceSource';
 
 class PlaceActions {
-  fetchPlace() {
-    return null;
+  fetchPlace(placeId) {
+    PlaceSource.fetch(placeId)
+      .then(res => {
+        res.json().then(json => {
+          this.updatePlace(json.DATA);
+        });
+      });
   }
 
   updatePlace(place) {
+    console.log('here',place);
     return place;
   }
 
