@@ -16,10 +16,14 @@ import PlaceActions from '../actions/PlaceActions';
 import PlaceStore from '../stores/PlaceStore';
 
 class AppPlace extends React.Component{
+  constructor(props){
+    super(props);
+    const id = this.props? this.props.params.id: null;
+    this.state = { id };
+  }
 	componentDidMount() {
   	window.scrollTo(0,0);
-		const id = this.props? this.props.params.id: null;
-		PlaceActions.fetchPlace(id);
+		PlaceActions.fetchPlace(this.state.id);
 	}
 	render(){
 		return (
@@ -45,7 +49,7 @@ class AppPlace extends React.Component{
 					</div>
 				</div>
 				<Footer />
-				<FixedBtn />
+				<FixedBtn placeId={this.state.id}/>
 			</div>
 		);
 	}
