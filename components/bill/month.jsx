@@ -1,13 +1,13 @@
 import React,{ Component } from 'react';
-import TimeList from './timeList';
 import BillActions from '../../actions/BillActions';
 
 class Month extends Component {
 
   constructor(props) {
 		super(props);
+    console.log('month', props);
 		this.state = {
-      monthDays: {},
+      monthDays: {}
 		};
 	}
 
@@ -21,7 +21,11 @@ class Month extends Component {
     if(!day.stat) {
       return;
     }
-    BillActions.updateSelectedDay(day.d);
+    BillActions.selectDay(
+      this.props.placeId, 
+      this.props.selectedYear, 
+      this.props.selectedMonth, 
+      day.d);
     //this.setState({selectedDay: day.d, showTimeList: true});
   }
 
@@ -82,7 +86,7 @@ class Month extends Component {
       return <div>Loading...</div>;
     }
     return (
-      <div className="col-md-12">
+       <div className="col-md-12">
         <div className="bookCalendar">
           <div className="calendarHeader clear">
             <h4>{this.props.selectedYear}</h4>
@@ -123,11 +127,6 @@ class Month extends Component {
             </tbody>
           </table>
         </div>
-        { this.props.selectedDay ? <TimeList
-          id={this.state.placeId}
-          year={this.state.selectedYear} 
-          month={this.state.selectedMonth} 
-          day={this.props.selectedDay} />: null }
       </div>
     );
   }

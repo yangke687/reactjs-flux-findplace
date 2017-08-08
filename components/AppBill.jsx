@@ -5,6 +5,7 @@ import NavBar from './bill/navbar';
 import Month from './bill/month';
 import BillHeader from './bill/header';
 import BillForm from './bill/form';
+import TimeList from './bill/timeList';
 import Footer from './Footer';
 
 import BillStore from '../stores/BillStore';
@@ -28,8 +29,8 @@ class AppBill extends Component{
 				<div className="col-sm-9 col-md-9 mT100" style={{"backgroundColor":"#FFF"}}>
 					<AltContainer store={BillStore}>
 						<BillHeader />
-						<Month 
-              placeId={this.state.id} />
+            <Month placeId={this.state.id} />
+            <TimeList placeId={this.state.id} />
 						<BillForm />
 					</AltContainer>
 				</div>
