@@ -28,7 +28,8 @@ class AppBill extends Component{
 				<div className="col-sm-9 col-md-9 mT100" style={{"backgroundColor":"#FFF"}}>
 					<AltContainer store={BillStore}>
 						<BillHeader />
-						<Month />
+						<Month 
+              placeId={this.state.id} />
 						<BillForm />
 					</AltContainer>
 				</div>

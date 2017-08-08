@@ -13,9 +13,15 @@ const data = [
 class TimeList extends Component {
   constructor(props){
     super(props);
-    this.state = {
+    const { id, year, month, day } = props;
+    this.state = { id, year, month, day,
       selectedTimes: []
     }
+    console.log('here', this.state);
+  }
+
+  componentWillReceiveProps(nextProps){
+    console.log('receive new props', nextProps);
   }
 
   handleTimeClick(time) {

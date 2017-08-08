@@ -7,10 +7,6 @@ class Month extends Component {
   constructor(props) {
 		super(props);
 		this.state = {
-      selectedYear: '1970',
-      selectedMonth: '01',
-			selectedDay: null,
-      showTimeList: false,
       monthDays: {},
 		};
 	}
@@ -18,12 +14,6 @@ class Month extends Component {
   componentWillReceiveProps(nextProps) {
     this.setState({
       monthDays: nextProps.monthDays,
-      selectedYear: nextProps.monthDays.header?
-        nextProps.monthDays.header.year:
-        new Date().getFullYear(),
-      selectedMonth: nextProps.monthDays.header?
-        nextProps.monthDays.header.month:
-        new Date().getMonth()+1,
     });
   }
 
@@ -31,13 +21,14 @@ class Month extends Component {
     if(!day.stat) {
       return;
     }
-    this.setState({selectedDay: day.d, showTimeList: true});
+    BillActions.updateSelectedDay(day.d);
+    //this.setState({selectedDay: day.d, showTimeList: true});
   }
 
   renderDays(days) {
     return days.map( (day,idx) => {
       let cls = day.stat?'choiceDay':'disabled';
-      if( this.state.selectedDay === day.d ) cls += ' selectedDate';
+      if( this.props.selectedDay === day.d ) cls += ' selectedDate';
       return (<td key={idx}>
         {day.d ? <a href="javascript:void(0);" onClick={this.handleClick.bind(this,day)} className={cls}>{day.d}</a> : ' ' }
       </td>);
@@ -54,24 +45,13 @@ class Month extends Component {
     });
   }
 
-  getSelectedYearAndMonth() {
-    const year = this.state.selectedYear?
-      parseInt(this.state.selectedYear) : 
-      new Date().getFullYear();
-    const month = this.state.selectedMonth?
-      parseInt(this.state.selectedMonth) :
-       new Date().getMonth()+1;
-    return [ year, month ];
-  }
-
   resetSelectedDay() {
     this.setState({selectedDay:null, showTimeList: false});
   }
 
   setToLastMonth(evt) {
     evt.preventDefault();
-    this.resetSelectedDay();
-    let [year, month] = this.getSelectedYearAndMonth();
+    let { selectedYear: year, selectedMonth: month } = this.props;
     if(month===1) {
       year = year-1;
       month = 12;
@@ -79,13 +59,13 @@ class Month extends Component {
       month = month-1;
     }
     // invoke actions
+    BillActions.resetSelectedDay();
     BillActions.selectMonth(year, month);
   }
 
   setToNextMonth(evt) {
     evt.preventDefault();
-    this.resetSelectedDay();
-    let [year, month] = this.getSelectedYearAndMonth();
+    let { selectedYear: year, selectedMonth: month } = this.props;
     if(month===12) {
       year = year+1;
       month = 1;
@@ -93,6 +73,7 @@ class Month extends Component {
       month = month + 1;
     }
     // invoke actions
+    BillActions.resetSelectedDay();
     BillActions.selectMonth(year, month);
   }
 
@@ -104,8 +85,8 @@ class Month extends Component {
       <div className="col-md-12">
         <div className="bookCalendar">
           <div className="calendarHeader clear">
-            <h4>{this.state.monthDays.header.month}</h4>
-            <span>{this.state.monthDays.header.year}</span>
+            <h4>{this.props.selectedYear}</h4>
+            <span>{this.props.selectedMonth}</span>
             <ul>
               <li>
                 <a 
@@ -131,7 +112,7 @@ class Month extends Component {
             <tbody>
               <tr align="center" className="week_text">
                 <th>日</th>
-                <th>ㄧ</th>
+                <th>一</th>
                 <th>二</th>
                 <th>三</th>
                 <th>四</th>
@@ -142,10 +123,11 @@ class Month extends Component {
             </tbody>
           </table>
         </div>
-        { this.state.showTimeList ? <TimeList 
+        { this.props.selectedDay ? <TimeList
+          id={this.state.placeId}
           year={this.state.selectedYear} 
           month={this.state.selectedMonth} 
-          day={this.state.selectedDay} />: null }
+          day={this.props.selectedDay} />: null }
       </div>
     );
   }

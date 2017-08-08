@@ -20,11 +20,46 @@ class BillActions {
 		fetch(`${API_URL}/placeMonthUsable.do?year=${year}&month=${month}`)
 			.then(res => {
 				res.json().then(json => {
+          this.updateSelectedMonth(month);
+          this.updateSelectedYear(year);
 					this.updateMonthDays(json.DATA);
 				});
 			});
 	}
 
+  // selectedDay
+  updateSelectedDay(day) {
+    return day;
+  }
+
+  selectedDayFailed(errorMessage) {
+    return errorMessage;
+  }
+
+  resetSelectedDay() {
+    return null;
+  }
+
+  // selectedMonth
+  updateSelectedMonth(month) {
+    return month;
+  }
+
+  selectedMonthFailed(errorMessage){
+    return errorMessage;
+  }
+
+  // selecteYear
+  updateSelectedYear(year) {
+    return year;
+  }
+
+  selectedYearFailed(errorMessage){
+    return errorMessage;
+  }
+
+
+  // place
   fetchPlace(placeId) {
     PlaceSource.fetch(placeId)
       .then(res => {
