@@ -1,5 +1,6 @@
 import alt from '../alt';
 import { API_URL } from '../sources/config';
+import PlaceSource from '../sources/PlaceSource';
 
 class BillActions {
 
@@ -23,6 +24,23 @@ class BillActions {
 				});
 			});
 	}
+
+  fetchPlace(placeId) {
+    PlaceSource.fetch(placeId)
+      .then(res => {
+        res.json().then(json => {
+          this.updatePlace(json.DATA);
+        });
+      });
+  }
+
+  updatePlace(place) {
+    return place;
+  }
+
+  placeFailed(errorMessage) {
+    return errorMessage;
+  }
 }
 
 export default alt.createActions(BillActions);

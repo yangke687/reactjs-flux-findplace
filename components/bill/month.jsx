@@ -18,8 +18,12 @@ class Month extends Component {
   componentWillReceiveProps(nextProps) {
     this.setState({
       monthDays: nextProps.monthDays,
-      selectedYear: nextProps.monthDays.header.year,
-      selectedMonth: nextProps.monthDays.header.month,
+      selectedYear: nextProps.monthDays.header?
+        nextProps.monthDays.header.year:
+        new Date().getFullYear(),
+      selectedMonth: nextProps.monthDays.header?
+        nextProps.monthDays.header.month:
+        new Date().getMonth()+1,
     });
   }
 
@@ -60,8 +64,13 @@ class Month extends Component {
     return [ year, month ];
   }
 
+  resetSelectedDay() {
+    this.setState({selectedDay:null, showTimeList: false});
+  }
+
   setToLastMonth(evt) {
     evt.preventDefault();
+    this.resetSelectedDay();
     let [year, month] = this.getSelectedYearAndMonth();
     if(month===1) {
       year = year-1;
@@ -75,6 +84,7 @@ class Month extends Component {
 
   setToNextMonth(evt) {
     evt.preventDefault();
+    this.resetSelectedDay();
     let [year, month] = this.getSelectedYearAndMonth();
     if(month===12) {
       year = year+1;

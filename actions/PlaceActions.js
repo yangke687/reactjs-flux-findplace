@@ -12,7 +12,6 @@ class PlaceActions {
   }
 
   updatePlace(place) {
-    console.log('here',place);
     return place;
   }
 

@@ -2,11 +2,13 @@ import React,{ Component } from 'react';
 
 class BillHeader extends Component {
   render() {
+    const placeTitle = this.props.place.title? this.props.place.title : 'Loading...';
+    const placeExcerpt = this.props.place.excerpt? this.props.place.excerpt : 'Loading...';
     return (
       <div>
         <div className="text-center bookProgramTitle">
-          <h1>Treerful 小树屋｜古亭 B｜</h1>
-          <h2>完整独立空间，每小时$280元，不被打扰、不限使使用人数。</h2>
+          <h1>{ placeTitle }</h1>
+          <h2>{ placeExcerpt }</h2>
           <div className="mT20">
             <span className="btn btnHour">总价 $280/1hr</span>
           </div>

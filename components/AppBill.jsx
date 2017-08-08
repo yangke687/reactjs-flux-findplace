@@ -8,10 +8,17 @@ import BillForm from './bill/form';
 import Footer from './Footer';
 
 import BillStore from '../stores/BillStore';
+import PlaceActions from '../actions/PlaceActions';
 
 class AppBill extends Component{
+  constructor(props) {
+    super(props);
+    const id = this.props? this.props.params.id: null;
+    this.state = { id };
+  }
 	componentDidMount() {
   	window.scrollTo(0,0);
+    PlaceActions.fetchPlace(this.state.id);
 		BillStore.fetchMonthDays();
 	}
 	render(){
