@@ -13,11 +13,8 @@ const data = [
 class TimeList extends Component {
   constructor(props){
     super(props);
-    const { id, year, month, day } = props;
-    this.state = { id, year, month, day,
-      selectedTimes: []
-    }
-    console.log('here', this.state);
+    this.state = {};
+    console.log('time list', props);
   }
 
   componentWillReceiveProps(nextProps){
@@ -63,18 +60,24 @@ class TimeList extends Component {
   }
 
   render() {
+    if(!this.props.selectedDay) {
+      return null;
+    }
+    console.log('render',this.props.dayTimes);
     return (
+    <div className="col-md-12">
       <div className="bookTimeList">
         <div className="bookProgramTime">
           <div className="topArrowGray"></div>
           <div className="topArrow"></div>
           <div className="calendarHeader clear">
-             <h4 className="bookSelectedDate">{this.props.month}.{this.props.day}</h4>
-             <span className="bookYear">{this.props.year}</span>
+             <h4 className="bookSelectedDate">{this.props.selectedMonth}.{this.props.selectedDay}</h4>
+             <span className="bookYear">{this.props.selectedYear}</span>
           </div>
-          {this.renderBlocks(data)}
+          {this.renderBlocks(this.props.dayTimes)}
         </div>
       </div>
+    </div>
     );
   }
 }

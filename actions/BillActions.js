@@ -27,6 +27,25 @@ class BillActions {
 			});
 	}
 
+  // day times
+  updateDayTimes(dayTimes) {
+    return dayTimes;
+  }
+
+  dayTimesFailed(errorMessage) {
+    return errorMessage;
+  }
+
+  selectDay(placeId, year, month, day, ) {
+    fetch(`${API_URL}/placeDayUsable.do?id=${placeId}&year=${year}&month=${month}&day=${day}`)
+      .then(res => {
+        res.json().then(json => {
+          this.updateDayTimes(json.DATA);
+          this.updateSelectedDay(day);
+        });
+      });
+  }
+
   // selectedDay
   updateSelectedDay(day) {
     return day;

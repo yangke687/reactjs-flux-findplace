@@ -7,17 +7,21 @@ class BillStore {
 	constructor() {
     this.place = {};
 		this.monthDays = {};
+    this.dayTimes = {};
     this.selectedDay = null;
     this.selectedMonth = new Date().getMonth()+1;
     this.selectedYear = new Date().getFullYear();
 		this.errorMessage = null;
 
 		this.bindListeners({
-
+      // month days
 			handleUpdateMonthDays: BillActions.UPDATE_MONTH_DAYS,
 			handledMonthDaysFailed: BillActions.MONTH_DAYS_FAILED,
-
-			handleSelectMonth: BillActions.SELECT_MONTH,
+      handleSelectMonth: BillActions.SELECT_MONTH,
+      // day times
+      handleUpdateDayTimes: BillActions.UPDATE_DAY_TIMES,
+      handleDayTimesFailed: BillActions.DAY_TIMES_FAILED,
+      handleSelectDay: BillActions.SELECT_DAY,
 
       handleFetchPlace: PlaceActions.FETCH_PLACE,
       handleUpdatePlace: PlaceActions.UPDATE_PLACE,
@@ -44,6 +48,18 @@ class BillStore {
 	handleSelectMonth() {
 		this.monthDays = {};
 	}
+
+  handleUpdateDayTimes(dayTimes) {
+    this.dayTimes = dayTimes;
+  }
+
+  handleDayTimesFailed(errorMessage) {
+    this.errorMessage = errorMessage;
+  }
+
+  handleSelectDay() {
+    this.dayTimes = {};
+  }
 
 	handledMonthDaysFailed(errorMessage) {
 		this.errorMessage = errorMessage;
