@@ -1,5 +1,6 @@
 import React,{ Component } from 'react';
 import BillActions from '../../actions/BillActions';
+import { formatMonth } from '../../utils';
 
 class Month extends Component {
 
@@ -90,7 +91,7 @@ class Month extends Component {
         <div className="bookCalendar">
           <div className="calendarHeader clear">
             <h4>{this.props.selectedYear}</h4>
-            <span>{this.props.selectedMonth}</span>
+            <span>{formatMonth(this.props.selectedMonth)}</span>
             <ul>
               <li>
                 <a 

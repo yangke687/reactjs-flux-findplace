@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 import _ from 'lodash';
 
 import BillActions from '../../actions/BillActions';
+import { formatMonth } from '../../utils';
 
 class TimeList extends Component {
   constructor(props){
@@ -65,7 +66,7 @@ class TimeList extends Component {
           <div className="topArrowGray"></div>
           <div className="topArrow"></div>
           <div className="calendarHeader clear">
-             <h4 className="bookSelectedDate">{this.props.selectedMonth}.{this.props.selectedDay}</h4>
+             <h4 className="bookSelectedDate">{formatMonth(this.props.selectedMonth)}.{this.props.selectedDay}</h4>
              <span className="bookYear">{this.props.selectedYear}</span>
           </div>
           {this.renderBlocks(this.props.dayTimes)}
