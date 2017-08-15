@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 class BillForm extends Component {
+
+  handleSubmit(evt) {
+    evt.preventDefault();
+    console.log('submit info', this.props);
+  }
+
   render() {
     return (
       <div className="form col-md-12">
@@ -114,12 +120,12 @@ class BillForm extends Component {
               </section>
             </div>
 
-            <div className="row priceInfo">
+            <div className="row priceInfo" style={{display:"none"}}>
               <div className="col-xs-4">小计</div>
               <div className="col-xs-8 text-right">280</div>
             </div>
 
-            <div className="row">
+            <div className="row" style={{display:"none"}}>
               <div className="col-xs-12 coupon">折扣码</div>
               <div className="col-xs-8">
                 <input type="text" className="input-code" id="discountCode" placeholder="输入折扣码" />
@@ -130,7 +136,7 @@ class BillForm extends Component {
             </div>
 
             <div className="row priceInfo total">
-              <hr/>
+              <hr style={{display:"none"}}/>
               <div className="col-xs-4">总金额</div>
               <div className="col-xs-8 text-right">280</div>
             </div>
@@ -140,13 +146,16 @@ class BillForm extends Component {
                 <input type="checkbox" id="confirmCheck" />
               </div>
               <div className="col-xs-10">
-                我已經了解「线上刷卡不代表预约完成并且不会立即扣款，收到确认才表示预约完成并扣款」
+                我已经了解「微信预付定金不代表预约完成，收到确认回复才表示预约完成」
               </div>
             </div>
 
             <div className="row">
               <div className="mT20 mD20 mB50">
-                <button id="submitBook" className="btn btnSearch btn-block">预约</button>	
+                <button 
+                  id="submitBook" 
+                  className="btn btnSearch btn-block"
+                  onClick={this.handleSubmit.bind(this)}>预约</button>
               </div>
             </div>
 

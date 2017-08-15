@@ -10,7 +10,7 @@ class BillHeader extends Component {
           <h1>{ placeTitle }</h1>
           <h2>{ placeExcerpt }</h2>
           <div className="mT20">
-            <span className="btn btnHour">总价 $280/1hr</span>
+            <span className="btn btnHour">单价 {this.props.place.price}/1小时</span>
           </div>
           <div className="bottomArrowWhite"></div>
           <div className="bottomArrow"></div>

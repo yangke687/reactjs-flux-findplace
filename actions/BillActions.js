@@ -46,6 +46,15 @@ class BillActions {
       });
   }
 
+  // selectTimes
+  updateSelectedTimes(time) {
+    return time;
+  }
+
+  selectedTimesFailed(errorMessage) {
+    return errorMessage;
+  }
+
   // selectedDay
   updateSelectedDay(day) {
     return day;

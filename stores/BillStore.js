@@ -1,13 +1,15 @@
-var alt = require('../alt');
-var BillActions = require('../actions/BillActions');
-var PlaceActions = require('../actions/PlaceActions');
-var BillSource = require('../sources/BillSource');
+import _ from 'lodash';
+import alt from '../alt';
+import BillActions from '../actions/BillActions';
+import PlaceActions from '../actions/PlaceActions';
+import BillSource from '../sources/BillSource';
 
 class BillStore {
 	constructor() {
     this.place = {};
 		this.monthDays = {};
     this.dayTimes = {};
+    this.selectedTimes = [];
     this.selectedDay = null;
     this.selectedMonth = new Date().getMonth()+1;
     this.selectedYear = new Date().getFullYear();
@@ -36,10 +38,28 @@ class BillStore {
       // selected year
       handleUpdateSelectedYear: BillActions.UPDATE_SELECTED_YEAR,
       handleUpdateSelectedYearFailed: BillActions.SELECTED_YEAR_FAILED,
+      // selected Times
+      handleUpdateSelectedTimes: BillActions.UPDATE_SELECTED_TIMES,
+      handleUpdateSelectedTimesFailed: BillActions.SELECTED_TIMES_FAILED,
 		});
 
 		this.exportAsync(BillSource);
 	}
+
+  // selectedTimes
+  handleUpdateSelectedTimes(time) {
+    if(!_.contains(this.selectedTimes,time.time)) {
+      this.selectedTimes = [ ...this.selectedTimes, time.time ];
+    } else {
+      this.selectedTimes = _.reject(this.selectedTimes, item => item === time.time );
+    }
+  }
+
+  handleUpdateSelectedTimesFailed(errorMessage) {
+    this.errorMessage = errorMessage;
+  }
+
+  // ...
 
 	handleUpdateMonthDays(monthDays) {
 		this.monthDays = monthDays;
