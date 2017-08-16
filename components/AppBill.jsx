@@ -31,7 +31,7 @@ class AppBill extends Component{
 						<BillHeader />
             <Month placeId={this.state.id} />
             <TimeList placeId={this.state.id} />
-						<BillForm />
+						<BillForm placeId={this.state.id} />
 					</AltContainer>
 				</div>
 				<Footer />

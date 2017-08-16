@@ -5,24 +5,46 @@ class BillForm extends Component {
   constructor(props){
     super(props);
     this.state = {
-      event_type: null,
-      use_type: null,
+      eventType: null,
+      useType: null,
       contactor: null,
-      people_count: null,
-      telephone: null,
+      peopleCount: null,
+      phone: null,
       email: null,
-      corp_name: null,
+      corpName: null,
       recipients: null,
-      recv_addr: null,
+      recvAddr: null,
       message: null,
       /** 
         accept servie rules
       */
       accept: false,
+      /** 
+        props
+      */
+      placeId: props.placeId,
+      year: props.selectedYear,
+      month: props.selectedMonth,
+      day: props.selectedDay,
+      times: JSON.stringify(props.selectedTimes),
+      /**
+        amount
+      */
+      price: 0.1,
+      total: 0.1,
     };
     this.change = this.change.bind(this);
     this.toggle= this.toggle.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      year: nextProps.selectedYear,
+      month: nextProps.selectedMonth,
+      day: nextProps.selectedDay,
+      times: JSON.stringify(nextProps.selectedTimes),
+    });
   }
 
   handleSubmit(evt) {
@@ -51,11 +73,11 @@ class BillForm extends Component {
                   活动
                 </label>
                 <select 
-                  name="event_type" 
+                  name="eventType" 
                   id="eventType" 
                   className="form-control"
                   onChange={this.change}
-                  value={this.state.event_type}
+                  value={this.state.eventType}
                 >
                   <option value="">选择...</option>
                   <option value="会议">会议</option>	
@@ -76,11 +98,11 @@ class BillForm extends Component {
                   使用人类别
                 </label>
                 <select 
-                  name="use_type"
+                  name="useType"
                   id="useType" 
                   className="form-control"
                   onchange={this.change}
-                  value={this.state.use_type}>
+                  value={this.state.useType}>
                   <option value="">选择...</option>
                   <option value="个人">个人</option>	
                   <option value="公司">公司</option>	
@@ -108,12 +130,12 @@ class BillForm extends Component {
                 </label>
                 <input 
                   type="number"
-                  name="people_count"
+                  name="peopleCount"
                   className="form-control"
                   min="1" 
                   placeholder="填入预约人数..." 
                   onChange={this.change}
-                  value={this.state.people_count}
+                  value={this.state.peopleCount}
                 />
               </section>
             </div>
@@ -125,11 +147,11 @@ class BillForm extends Component {
                 </label>
                 <input 
                   type="text"
-                  name="telephone" 
+                  name="phone" 
                   className="form-control" 
                   placeholder="填入您的手机号码..." 
                   onChange={this.change}
-                  value={this.state.telephone}
+                  value={this.state.phone}
                 />
               </section>
               <section className="col col-6">
@@ -159,11 +181,11 @@ class BillForm extends Component {
                 </label>
                 <input 
                   type="text" 
-                  name="corp_name"
+                  name="corpName"
                   className="form-control" 
                   placeholder="填入公司名称..." 
                   onChange={this.change}
-                  value={this.state.corp_name}
+                  value={this.state.corpName}
                 />
               </section>
             </div>
@@ -188,12 +210,12 @@ class BillForm extends Component {
                 </label>
                 <input 
                   type="number" 
-                  name="recv_addr"
+                  name="recvAddr"
                   className="form-control" 
                   min="1" 
                   placeholder="填入收件人地址..." 
                   onChange={this.change}
-                  value={this.state.recv_addr}
+                  value={this.state.recvAddr}
                 />
               </section>
             </div>
@@ -233,7 +255,7 @@ class BillForm extends Component {
             <div className="row priceInfo total">
               <hr style={{display:"none"}}/>
               <div className="col-xs-4">总金额</div>
-              <div className="col-xs-8 text-right">280</div>
+              <div className="col-xs-8 text-right">{this.state.total}</div>
             </div>
 
             <div className="row confirmInfo">
