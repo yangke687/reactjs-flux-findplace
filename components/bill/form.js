@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { API_URL } from '../../sources/config';
 
 class BillForm extends Component {
 
@@ -22,7 +23,7 @@ class BillForm extends Component {
       /** 
         props
       */
-      placeId: props.placeId,
+      placeID: props.placeId,
       year: props.selectedYear,
       month: props.selectedMonth,
       day: props.selectedDay,
@@ -49,8 +50,14 @@ class BillForm extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    console.log('props:', this.props);
-    console.log('state:', this.state);
+    //console.log('props:', this.props);
+    //console.log('state:', this.state);
+    fetch(`${API_URL}/saveOrder.do`,{
+      method: 'POST',
+      body: this.state,
+    }).then(function(res){
+      console.log('order ID:', res);
+    });
   }
 
   toggle() {
