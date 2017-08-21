@@ -4,15 +4,14 @@ var browserify = require('browserify');
 var babelify = require('babelify');
 var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
+var buffer = require('vinyl-buffer');
 var rename = require('gulp-rename');
 var runSequence = require('run-sequence');
 var less = require('gulp-less');
-var connect = require('connect');
-var serve = require('serve-static');
-var browsersync = require('browser-sync');
-var buffer = require('vinyl-buffer');
+var connect = require('gulp-connect');
+var proxy = require('http-proxy-middleware');
 
-gulp.task('build', function() {
+gulp.task('js', function() {
   return browserify({
       entries: 'app.js',
       extensions: ['.jsx'],
@@ -28,14 +27,14 @@ gulp.task('build', function() {
     .pipe(buffer())
     .pipe(uglify())
     .pipe(gulp.dest('dist'))
-    .pipe(browsersync.stream());;
+    .pipe(connect.reload());
 });
 
 gulp.task('less', function() {
   return gulp.src('less/style.less')
     .pipe(less())
     .pipe(gulp.dest('./dist/style'))
-    .pipe(browsersync.stream());
+    .pipe(connect.reload());
 });
 
 gulp.task('compress', function() {
@@ -56,22 +55,29 @@ gulp.task('copy', function() {
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('browsersync', function() {
-  browsersync({
-    server: {
-      baseDir: './dist'
-    }
+gulp.task('connect', function() {
+  connect.server({
+    root: './dist',
+    livereload: true,
+    port: 8810,
+    middleware: function(connect, opt){
+      return [
+        proxy('/api',{
+          target: 'http://127.0.0.1',
+          changeOrigin: true,
+          pathRewrite: {
+            '^/api' : '/wechat/placeRent',
+          },
+        })
+      ];
+    },
   });
-  gulp.watch("./*.js", ['build']);
-  gulp.watch("./components/**/*.jsx", ['build']);
-  gulp.watch("./actions/*.js", ['build']);
-  gulp.watch("./stores/*.js", ['build']);
-  gulp.watch("./sources/*.js", ['build']);
-  gulp.watch("./less/**/*.less", ['less']);
-  gulp.watch("*.html").on('change', browsersync.reload);
-  gulp.watch('./images/**/*', ['copy']);
 });
 
-gulp.task('default', function(cb) {
-  runSequence('build', 'less', 'copy', 'browsersync');
+gulp.task('watch', function() {
+  gulp.watch(['./**/*.jsx','./**/*.js'],['js']);
+  gulp.watch("./**/*.less", ['less']);
 });
+
+
+gulp.task('default', ['connect','watch']);
