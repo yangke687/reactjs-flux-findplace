@@ -50,13 +50,14 @@ class BillForm extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    //console.log('props:', this.props);
-    //console.log('state:', this.state);
     fetch(`${API_URL}/saveOrder.do`,{
       method: 'POST',
       body: this.state,
     }).then(function(res){
-      console.log('order ID:', res);
+      res.json().then(function(json){
+        const orderId = json.obj;
+        window.location = `/#/pay/${orderId}`;
+      });
     });
   }
 
