@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 
 import NavBar from './bill/navbar';
+import PayActions from '../actions/PayActions';
+import PayStore from '../stores/PayStore';
 
 class AppPay extends React.Component {
   constructor(props) {
     super(props);
+    const orderId = this.props? this.props.params.order: null;
+    this.state = { orderId };
   }
 
   componentDidMount() {
     window.scrollTo(0,0);
+    PayActions.fetchPayOrder(this.state.orderId);
   }
 
   render() {

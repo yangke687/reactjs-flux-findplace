@@ -9,6 +9,7 @@ import AppRoot from './components/AppRoot';
 import AppSearch from './components/AppSearch';
 import AppPlace from './components/AppPlace';
 import AppBill from './components/AppBill';
+import AppPay from './components/AppPay';
 
 ReactDOM.render(
 	(<Router history={hashHistory}>
@@ -16,6 +17,7 @@ ReactDOM.render(
 		<Route path="/place/:id" component={AppPlace} />
 		<Route path="/bill/:id" component={AppBill} />
 		<Route path="/search(/:uses)(/:county)(/:max_people)(/:keywords)" component={AppSearch} />
+		<Route path="/pay/:order" component={AppPay} />
 	</Router>),
 	document.getElementById('app-root')
 );
