@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import querystring from 'querystring';
 import { API_URL } from '../../sources/config';
+
+//axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 class BillForm extends Component {
 
@@ -50,14 +54,13 @@ class BillForm extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    fetch(`${API_URL}/saveOrder.do`,{
-      method: 'POST',
-      body: this.state,
-    }).then(function(res){
-      res.json().then(function(json){
-        const orderId = json.obj;
+    axios.post(`${API_URL}/saveOrder.do`, 
+      querystring.stringify(this.state))
+    .then(function(res){
+      if(res.data) {
+        const orderId = res.data.obj;
         window.location = `/#/pay/${orderId}`;
-      });
+      }
     });
   }
 
