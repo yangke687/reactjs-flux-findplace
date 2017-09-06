@@ -48,14 +48,45 @@ class BillForm extends Component {
       year: nextProps.selectedYear,
       month: nextProps.selectedMonth,
       day: nextProps.selectedDay,
-      times: JSON.stringify(nextProps.selectedTimes),
+      //times: JSON.stringify(nextProps.selectedTimes),
+      times: nextProps.selectedTimes,
     });
   }
 
   handleSubmit(evt) {
     evt.preventDefault();
+    /**
+     * Check this.state
+     */
+    if(!this.state.times.length) {
+      alert('请选择场地租用时间段!');
+      return false;
+    }
+    if(!this.state.eventType) {
+      alert('请选择活动选项!');
+      return false;
+    }
+    if(!this.state.useType) {
+      alert('请选择使用人类别!');
+      return false;
+    }
+    if(!this.state.contactor) {
+      alert('请填写联系人姓名!');
+      return false;
+    }
+    if(!this.state.peopleCount) {
+      alert('请填写人数!');
+      return false;
+    }
+    if(!this.state.phone) {
+      alert('请填写联系电话!');
+    }
+
     axios.post(`${API_URL}/saveOrder.do`, 
-      querystring.stringify(this.state))
+      querystring.stringify({
+        ...this.state,
+        ...{ times: JSON.stringify(this.state.times) },
+      }))
     .then(function(res){
       if(res.data) {
         const orderId = res.data.obj;
@@ -112,7 +143,7 @@ class BillForm extends Component {
                   name="useType"
                   id="useType" 
                   className="form-control"
-                  onchange={this.change}
+                  onChange={this.change}
                   value={this.state.useType}>
                   <option value="">选择...</option>
                   <option value="个人">个人</option>	
