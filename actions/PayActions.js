@@ -6,7 +6,7 @@ class PayActions {
     PaySource.fetch(orderId)
       .then(res => {
         res.json().then(json => {
-          this.updateOrder(json.DATA);
+          this.updatePayOrder(json.DATA);
         });
       });
   }
