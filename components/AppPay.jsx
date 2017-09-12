@@ -28,7 +28,7 @@ class AppPay extends React.Component {
               <div className="mobileProgramArea">
                 <div className="clear programSiteTime">
                   <AltContainer store={PayStore}>
-                    <PayInfo />
+                    <PayInfo orderId={this.state.orderId}/>
                   </AltContainer>
                 </div>
               </div>
