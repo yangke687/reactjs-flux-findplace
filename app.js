@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
 import URI from 'urijs';
+import axios from 'axios';
 
-import { APP_ID, APP_SECRET } from './sources/config';
+import { API_URL, APP_ID, APP_SECRET } from './sources/config';
 import AppRoot from './components/AppRoot';
 import AppSearch from './components/AppSearch';
 import AppPlace from './components/AppPlace';
@@ -11,7 +12,7 @@ import AppBill from './components/AppBill';
 import AppPay from './components/AppPay';
 
 const generateGetCodeUrl = function(redirectURL) {
-	return new URI("https://open.weixin.qq.com/connect/oauth2/authorize")
+	return new URI('https://open.weixin.qq.com/connect/oauth2/authorize')
         .addQuery("appid", APP_ID)
         .addQuery("redirect_uri", redirectURL)
         .addQuery("response_type", "code")
@@ -21,15 +22,32 @@ const generateGetCodeUrl = function(redirectURL) {
         .toString();
 }
 
+const generateGetTokenUrl = function(code) {
+	return new URI(`${API_URL}/doPost.do`)
+		.addQuery('code', code)
+		.toString();
+}
+
 const wechatAuth = function(nextState, replace, next) {
 	const uri = new URI(document.location.href);
 	const query = uri.query(true);
 	const {code} = query;
 	
 	if(code) {
-			//WechatUserStore.fetchUserInfo(code);
-			console.log(code);
-			next();
+			/**
+			 * get openid
+			 */
+			axios.get(generateGetTokenUrl(code))
+				.then(function(res){
+					console.log(res);
+					if(res.data && res.data.obj){
+						localStorage.setItem('gfsq_openId',res.data.obj);
+						next();
+					}
+					else{
+						alert('获取openID失败!');
+					}
+				});
 	} else {
 			document.location = generateGetCodeUrl(document.location.href);
 	}
