@@ -63,7 +63,8 @@ gulp.task('connect', function() {
     middleware: function(connect, opt){
       return [
         proxy('/api',{
-          target: 'http://127.0.0.1',
+          //target: 'http://127.0.0.1',
+          target: 'http://192.168.2.227',
           changeOrigin: true,
           pathRewrite: {
             '^/api' : '/wechat/placeRent',
@@ -75,9 +76,9 @@ gulp.task('connect', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['./**/*.jsx','./**/*.js'],['js']);
-  gulp.watch("./**/*.less", ['less']);
+  gulp.watch(['./app.js','./components/**/*.jsx','./components/**/*.js'],['js']);
+  gulp.watch("./less/**/*.less", ['less']);
 });
 
 
-gulp.task('default', ['connect','watch']);
+gulp.task('default', ['js','connect','watch']);
