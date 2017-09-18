@@ -31,8 +31,8 @@ class AppPlace extends React.Component{
 				<NavBar />
 				<div className="container clear">
 					<div className="row">
-						<SearchBtn />
-						<div className="col-xs-12">
+						{/* <SearchBtn /> */}
+						<div className="col-xs-12 mT100">
 							<div className="mobileProgramArea">
 								<AltContainer store={PlaceStore}>
 									<PlaceInfo />

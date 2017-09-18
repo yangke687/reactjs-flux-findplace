@@ -7,13 +7,17 @@ class PayInfo extends React.Component{
     this.state = { orderId: props.orderId }
   }
   pay() {
-    window.location = `${API_URL}/orderPay.do?id=${this.state.orderId}`;
+    if(localStorage.getItem('gfsq_openId')) {
+      const openId = localStorage.getItem('gfsq_openId');
+      window.location = `${API_URL}/orderPay.do?orderId=${this.state.orderId}&openId=${openId}`;
+    } else {
+      alert('获取openId失败!');
+    }
   }
   render() {
     if( !this.props.payOrder.ORDER ) {
       return (<div>Loading...</div>);
     }
-    console.log('payOrder:', this.props.payOrder);
     const times = JSON.parse(this.props.payOrder.ORDER.times);
     return (
       <div>

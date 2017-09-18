@@ -1,13 +1,5 @@
 import React,{Component} from 'react';
-
-const imgs =  [
-				'http://i.imgur.com/ubODjpt.jpg',
-				'http://i.imgur.com/TUoIzVf.jpg',
-				'http://i.imgur.com/2nfpJDT.jpg',
-				'http://i.imgur.com/Ky6MtZ9.jpg',
-				'http://i.imgur.com/mDn4g8R.jpg',
-				'http://i.imgur.com/gW42PcP.jpg',
-			];
+import { PUBLIC_PATH } from '../../..//sources/config'; 
 
 class PlaceGallery extends Component{
 	constructor(props){
@@ -36,14 +28,14 @@ class PlaceGallery extends Component{
 				<div className="imgLiquidFill" style={{"backgroundImage":"url('"+imgs[activeImgIdx]+"')"}}></div>
 				<div className="mobileProgramPhotoArea">
 					<div className="mobileProgramPhotoBarBtn leftBtn">
-						<img src="/images/arrow.png" />
-                    </div>
-                   	<div id="programPhotoBar">
-                   		{this.imgListRender()}
-                   	</div>
+						<img src={`${PUBLIC_PATH}/images/arrow.png`} />
+					</div>
+					<div id="programPhotoBar">
+						{this.imgListRender()}
+					</div>
 					<div className="mobileProgramPhotoBarBtn rightBtn">
-                    	<img src="/images/arrow2.png" />
-                    </div>
+						<img src={${PUBLIC_PATH}`/images/arrow2.png`} />
+					</div>
 				</div>
 			</div>
 		);

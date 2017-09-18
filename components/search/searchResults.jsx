@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { PUBLIC_PATH } from '../../sources/config';
 
 class SearchResultsItem extends React.Component{
 	render(){
-		return (<div className="mobileSearchResltArea" key={this.props.id}>
-			<Link to={'/place/'+this.props.id} className="logProgramClick">
+		return (<div 
+			className="mobileSearchResltArea"
+			key={this.props.id}>
+			<Link to={'/place-rent/place/'+this.props.id} className="logProgramClick">
 				<div className="searchProgramImgArea" 
 					style={{"backgroundImage":"url('" + this.props.img +"')"}}></div>
 			</Link>
@@ -15,19 +18,19 @@ class SearchResultsItem extends React.Component{
 				<div className="saerchProgramIconArea">
 					<div className="mD5">
                         <span className="programIcon">
-                        	<img src="/images/house.png" />
+                        	<img src={`${PUBLIC_PATH}/images/house.png`} />
                         	<a href="#">{this.props.title}</a>
                         </span>
                     </div>
                     <div className="mD5">
                         <span className="programIcon">
-                        <img src="/images/marker.png" />{this.props.location}</span>
+                        <img src={`${PUBLIC_PATH}/images/marker.png`} />{this.props.location}</span>
                         <span className="programIcon">
-                        <img src="/images/person.png" />{this.props.min_people}~{this.props.max_people}人</span>
+                        <img src={`${PUBLIC_PATH}/images/person.png`} />{this.props.min_people}~{this.props.max_people}人</span>
                     </div>
 					<div className="mD5">
                         <span className="programIcon">
-                    		<img src="/images/tags.png" />
+                    		<img src={`${PUBLIC_PATH}/images/tags.png`} />
                     		{this.props.uses.map((use,i)=>{
                     			return  (<span key={i}><a href="#" className="use" key={i}>{use}</a><b>/</b></span>);
                     		})}
@@ -46,7 +49,7 @@ class SearchResultsItem extends React.Component{
 
 class SearchResults extends React.Component{
 	render(){
-		return (<div id="searchResult" className="mT20 col-xs-12">
+		return (<div id="searchResult" className="mT100 col-xs-12">
 			{this.props.searchPlaces.map((place,i)=>{
 				return <SearchResultsItem key={i} {...place} />
 			})}

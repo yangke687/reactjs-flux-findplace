@@ -7,7 +7,7 @@ class SearchForm extends React.Component{
 	render(){
 		return (
 				
-			<div className="col-xs-12 mT100">
+			<div className="col-xs-12 mT100" style={{marginTop: 0}}>
 				<div id="phoneSearchNavbar">
 					<div className="hidden-print searchNavbar">
 						<form id="searchForm" onSubmit={this.handleSubmit.bind(this)}>

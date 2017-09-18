@@ -9,7 +9,7 @@ class FixedBtn extends React.Component{
   }
 	render(){
 		return (
-			<Link to={'/bill/'+this.state.id} className="btn fixed-bottom btnDiscount">付款预定</Link>
+			<Link to={'/place-rent/bill/'+this.state.id} className="btn fixed-bottom btnDiscount">付款预定</Link>
 		);
 	}
 }

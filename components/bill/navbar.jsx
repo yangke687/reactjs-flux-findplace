@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import { PUBLIC_PATH } from '../../sources/config';
 
 export default class NavBar extends Component{
 	render(){
@@ -8,7 +9,7 @@ export default class NavBar extends Component{
 					<div className="part">
 						<div className="pickoneLogoArea">
 							<a href="#" className="pickoneLogo">
-								<img src="/images/gfwy.png" />
+								<img src={`${PUBLIC_PATH}/images/gfwy.png`} />
 							</a>
 						</div>
 					</div>

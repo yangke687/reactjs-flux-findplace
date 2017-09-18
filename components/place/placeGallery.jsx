@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import { PUBLIC_PATH } from '../../sources/config';
 
 class PlaceGallery extends Component{
 	constructor(props){
@@ -29,14 +30,14 @@ class PlaceGallery extends Component{
 				<div className="imgLiquidFill" style={{"backgroundImage":"url('"+this.props.gallery[activeImgIdx]+"')"}}></div>
 				<div className="mobileProgramPhotoArea">
 					<div className="mobileProgramPhotoBarBtn leftBtn">
-						<img src="/images/arrow.png" />
-                    </div>
-                   	<div id="programPhotoBar">
-                   		{this.imgListRender()}
-                   	</div>
+						<img src={`${PUBLIC_PATH}/images/arrow.png`} />
+          </div>
+					<div id="programPhotoBar">
+						{this.imgListRender()}
+					</div>
 					<div className="mobileProgramPhotoBarBtn rightBtn">
-                    	<img src="/images/arrow2.png" />
-                    </div>
+						<img src={`${PUBLIC_PATH}/images/arrow2.png`} />
+					</div>
 				</div>
 			</div>
 		);

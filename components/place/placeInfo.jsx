@@ -1,5 +1,6 @@
 import React from 'react';
 import PlaceGallery from './placeGallery';
+import { PUBLIC_PATH } from '../../sources/config';
 
 class PlaceInfo extends React.Component{
 	render(){
@@ -17,19 +18,19 @@ class PlaceInfo extends React.Component{
             	<div className="clear">
                     <div className="programShareArea">
                         <div className="tags">
-                            <img src="/images/house.png" /> 
+                            <img src={`${PUBLIC_PATH}images/house.png`} /> 
                             <a href="#">{this.props.place.title}</a>
                         </div>
                         <div className="tags">
-                            <img src="/images/marker.png" /> 
+                            <img src={`${PUBLIC_PATH}/images/marker.png`} /> 
                             <a>{this.props.place.location}</a>
                         </div>
                         <div className="tags">
-                            <img src="/images/person.png" />
+                            <img src={`${PUBLIC_PATH}/images/person.png`} />
                             <a>{this.props.place.min_people} ～ {this.props.place.max_people} 人</a>
                         </div>
                         <div className="tags">
-                            <img src="/images/tags.png" />
+                            <img src={`${PUBLIC_PATH}/images/tags.png`} />
                             {this.props.place.uses.map((use,i)=>{
                                 return (<span><a href="#" key={i}> {use} </a> /</span>);
                             })}

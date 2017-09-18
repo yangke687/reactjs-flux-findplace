@@ -1,5 +1,6 @@
 import React from 'react';
 import PlaceGallery from './placeGallery';
+import { PUBLIC_PATH } from '../../../sources/config';
 
 class PlaceInfo extends React.Component{
 	render(){
@@ -18,19 +19,19 @@ class PlaceInfo extends React.Component{
             	<div className="clear">
                     <div className="programShareArea">
                         <div className="tags">
-                            <img src="/images/house.png" /> 
+                            <img src={`${PUBLIC_PATH}/images/house.png`} /> 
                             <a href="#">Treerful 小树屋｜古亭 302｜</a>
                         </div>
                         <div className="tags">
-                            <img src="/images/marker.png" /> 
+                            <img src={`${PUBLIC_PATH}/images/marker.png`} /> 
                             <a>台北市大安区</a>
                         </div>
                         <div className="tags">
-                            <img src="/images/person.png" />
+                            <img src={`${PUBLIC_PATH}/images/person.png`} />
                             <a>0 ～ 8</a>
                         </div>
                         <div className="tags">
-                            <img src="/images/tags.png" />
+                            <img src={`${PUBLIC_PATH}/images/tags.png`} />
                             <a href="#"> 会议</a>
                             &nbsp; / &nbsp;
                             <a href="#"> 派对</a>

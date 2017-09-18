@@ -80,6 +80,7 @@ class BillForm extends Component {
     }
     if(!this.state.phone) {
       alert('请填写联系电话!');
+      return false;
     }
 
     axios.post(`${API_URL}/saveOrder.do`, 
@@ -90,7 +91,7 @@ class BillForm extends Component {
     .then(function(res){
       if(res.data) {
         const orderId = res.data.obj;
-        window.location = `/#/pay/${orderId}`;
+        document.location = `/place-rent/pay/${orderId}`;
       }
     });
   }

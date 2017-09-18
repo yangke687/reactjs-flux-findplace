@@ -18,10 +18,10 @@ class AppSearch extends React.Component{
 			<NavBar />
 			<div className="container">
 				<div className="row">
-					<SearchForm />
 					<AltContainer store={SearchStore}>
 						<SearchResults />
 					</AltContainer>
+					{/* <SearchForm /> */}
 				</div>
 			</div>
 		</div>);

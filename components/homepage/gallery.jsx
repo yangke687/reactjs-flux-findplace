@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
+import { PUBLIC_PATH } from '../../sources/config';
 
 class Gallery extends React.Component{
 	render(){
@@ -17,63 +18,63 @@ class Gallery extends React.Component{
 					<div>
 						<div className="galleryThumb">
 							<h3>课程讲座</h3>
-							<img src="/images/event_icons-01.png" alt="" />
+							<img src={`${PUBLIC_PATH}/images/event_icons-01.png`} alt="" />
 							<a href="#">查看方案</a>
 						</div>
 					</div>
 			        <div>
 			        	<div className="galleryThumb">
 			        		<h3>派对</h3>
-			        		<img src="/images/event_icons-03.png" alt="" />
+			        		<img src={`${PUBLIC_PATH}/images/event_icons-03.png`} alt="" />
 							<a href="#">查看方案</a>
 			        	</div>
 			        </div>
 			        <div>
 			        	<div className="galleryThumb">
 			        		<h3>会议</h3>
-			        		<img src="/images/event_icons-05.png" alt="" />
+			        		<img src={`${PUBLIC_PATH}/images/event_icons-05.png`} alt="" />
 							<a href="#">查看方案</a>
 			        	</div>
 			        </div>
 			        <div>
 			        	<div className="galleryThumb">
 			        		<h3>聚会餐饮</h3>
-			        		<img src="/images/event_icons-06.png" alt="" />
+			        		<img src={`${PUBLIC_PATH}/images/event_icons-06.png`} alt="" />
 							<a href="#">查看方案</a>
 			        	</div>
 			        </div>
 			        <div>
 			        	<div className="galleryThumb">
 			        		<h3>拍摄摄影</h3>
-			        		<img src="/images/event_icons-07.png" alt="" />
+			        		<img src={`${PUBLIC_PATH}/images/event_icons-07.png`} alt="" />
 							<a href="#">查看方案</a>
 			        	</div>
 			        </div>
 			        <div>
 			        	<div className="galleryThumb">
 			        		<h3>发表会</h3>
-			        		<img src="/images/event_icons-04.png" alt="" />
+			        		<img src={`${PUBLIC_PATH}/images/event_icons-04.png`} alt="" />
 							<a href="#">查看方案</a>
 			        	</div>
 			        </div>
 			        <div>
 			        	<div className="galleryThumb">
 			        		<h3>音乐表演</h3>
-			        		<img src="/images/event_icons-08.png" alt="" />
+			        		<img src={`${PUBLIC_PATH}/images/event_icons-08.png`} alt="" />
 							<a href="#">查看方案</a>
 			        	</div>
 			        </div>
 			        <div>
 			        	<div className="galleryThumb">
 			        		<h3>静态展览</h3>
-			        		<img src="/images/event_icons-09.png" alt="" />
+			        		<img src={`${PUBLIC_PATH}/images/event_icons-09.png`} alt="" />
 							<a href="#">查看方案</a>
 			        	</div>
 			        </div>
 			        <div>
 			        	<div className="galleryThumb">
 			        		<h3>教育训练</h3>
-			        		<img src="/images/event_icons-02.png" alt="" />
+			        		<img src={`${PUBLIC_PATH}/images/event_icons-02.png`} alt="" />
 							<a href="#">查看方案</a>
 			        	</div>
 			        </div>
