@@ -10,6 +10,7 @@ var runSequence = require('run-sequence');
 var less = require('gulp-less');
 var connect = require('gulp-connect');
 var proxy = require('http-proxy-middleware');
+var historyFallback = require('connect-history-api-fallback');
 
 gulp.task('js', function() {
   return browserify({
@@ -26,33 +27,24 @@ gulp.task('js', function() {
     .pipe(source('bundle.js'))
     .pipe(buffer())
     .pipe(uglify())
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('dist/place-rent/'))
     .pipe(connect.reload());
 });
 
 gulp.task('less', function() {
   return gulp.src('less/style.less')
     .pipe(less())
-    .pipe(gulp.dest('./dist/style'))
+    .pipe(gulp.dest('./dist/place-rent/style'))
     .pipe(connect.reload());
-});
-
-gulp.task('compress', function() {
-  return gulp.src('./dist/bundle.js')
-    .pipe(uglify())
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('copy', function() {
   gulp.src('./images/**/*')
-    .pipe(gulp.dest('./dist/images'));
+    .pipe(gulp.dest('./dist/place-rent/images'));
   gulp.src('./vendors/**/*')
-    .pipe(gulp.dest('./dist/vendors'));
+    .pipe(gulp.dest('./dist/place-rent/vendors'));
   gulp.src('./index.html')
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./dist/place-rent'));
 });
 
 gulp.task('connect', function() {
@@ -63,13 +55,13 @@ gulp.task('connect', function() {
     middleware: function(connect, opt){
       return [
         proxy('/api',{
-          //target: 'http://127.0.0.1',
           target: 'http://192.168.2.227',
           changeOrigin: true,
           pathRewrite: {
             '^/api' : '/wechat/placeRent',
           },
-        })
+        }),
+        historyFallback(),
       ];
     },
   });
@@ -82,3 +74,4 @@ gulp.task('watch', function() {
 
 
 gulp.task('default', ['js','connect','watch']);
+gulp.task('build',['js','less','copy']);
