@@ -6,7 +6,6 @@ class PlaceActions {
     PlaceSource.fetch(placeId)
       .then(res => {
         res.json().then(json => {
-          console.log(json.DATA);
           this.updatePlace(json.DATA);
         });
       });
