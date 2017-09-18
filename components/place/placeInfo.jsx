@@ -37,7 +37,7 @@ class PlaceInfo extends React.Component{
                         </div>
                 	</div>
                     <div className="pull-right mT20">
-                        <span className="btn btnHour">总价 {this.props.place.price}/1hr</span>
+                        <span className="btn btnHour">价格 {this.props.place.price}/1hr</span>
                     </div>
                 </div>
                 <PlaceGallery gallery={this.props.place.gallery} />

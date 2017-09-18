@@ -61,7 +61,7 @@ class PlaceSiteTime extends React.Component{
 								<button className="btnBook book">我有问题</button>
 						</div>
 						<div className="programRemindArea">
-								<p>请确认价格、人数、时段皆符合需求再进行点选预约，点选预约已确定遵守场地主之<b>使用规范</b>，场地确认预定以后，将以Email方式回复确认</p>
+								<p>请确认价格、人数、时段皆符合需求再进行点选预约，点选预约已确定遵守场地<b>使用规范</b>，场地确认预定以后，工作人员将电话联系您</p>
 						</div>
 				</div>
 			</div>
