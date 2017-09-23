@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import axios from 'axios';
 import querystring from 'querystring';
-import { API_URL } from '../../sources/config';
+import {
+  API_URL
+} from '../../sources/config';
 
 //axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 class BillForm extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       eventType: null,
@@ -35,11 +39,11 @@ class BillForm extends Component {
       /**
         amount
       */
-      price: 0.1,
-      total: 0.1,
+      price: 0.01,
+      total: 0.01,
     };
     this.change = this.change.bind(this);
-    this.toggle= this.toggle.bind(this);
+    this.toggle = this.toggle.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -58,49 +62,51 @@ class BillForm extends Component {
     /**
      * Check this.state
      */
-    if(!this.state.times.length) {
+    if (!this.state.times.length) {
       alert('请选择场地租用时间段!');
       return false;
     }
-    if(!this.state.eventType) {
+    if (!this.state.eventType) {
       alert('请选择活动选项!');
       return false;
     }
-    if(!this.state.useType) {
+    if (!this.state.useType) {
       alert('请选择使用人类别!');
       return false;
     }
-    if(!this.state.contactor) {
+    if (!this.state.contactor) {
       alert('请填写联系人姓名!');
       return false;
     }
-    if(!this.state.peopleCount) {
+    if (!this.state.peopleCount) {
       alert('请填写人数!');
       return false;
     }
-    if(!this.state.phone) {
+    if (!this.state.phone) {
       alert('请填写联系电话!');
       return false;
     }
 
-    axios.post(`${API_URL}/saveOrder.do`, 
-      querystring.stringify({
-        ...this.state,
-        ...{ times: JSON.stringify(this.state.times) },
-      }))
-    .then(function(res){
-      if(res.data) {
-        const orderId = res.data.obj;
-        document.location = `/place-rent/pay/${orderId}`;
-      }
-    });
+    axios.post(`${API_URL}/saveOrder.do`,
+        querystring.stringify({
+          ...this.state,
+          ... {
+            times: JSON.stringify(this.state.times)
+          },
+        }))
+      .then(function(res) {
+        if (res.data) {
+          const orderId = res.data.obj;
+          document.location = `/place-rent/pay/${orderId}`;
+        }
+      });
   }
 
   toggle() {
-   this.state['accept'] = !this.state.accept; 
+    this.state['accept'] = !this.state.accept;
   }
 
-  change(evt){
+  change(evt) {
     this.state[evt.target.name] = evt.target.value;
   }
 
@@ -329,4 +335,4 @@ class BillForm extends Component {
   }
 }
 
-export default BillForm; 
+export default BillForm;
